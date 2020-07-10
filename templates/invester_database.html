@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- font awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <!-- fonts -->
+        <link rel="stylesheet" href="https://use.typekit.net/qwy7dph.css">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700,900&display=swap" rel="stylesheet">
+        <!-- css -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/assets_new/css/invester_database.css">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=rdQxnFvQBgXYfnO9kQiMLCNxjI0dzBZQxEwh4mLtbiZq5g0WwYPa215hG3dlfyJPaqhdhT9wc25Pt9lS-Nmc6Rbl1xX5Zsiz0I5UYoHVE0jCXCb-x9WDtWN-AWq8RAKT2AvTclQlpCj9_I6i6oYU58c786fxXB29rf5c2oxexTRbeKp-3ouYoIYNnICbDbLvyMGcO9SuCK6fvGT2VV4BNHlL9Y9GeF2DttK-bEeNStyJHhg6uusX-hbLjQwhzxT8T3AWXcBIarQnyEc1IwDGDyAVsi1pj_wzZhguGNkxCkgj_GABNdH0k5XEU56SQUKiF3qKe-fsdfvR5DcBwPvVcspwAA7FF3HEGUf4ouLYlwndjYojyBEp72Nc9NIJeDvDawipxacIdt_4VxkwA2m5UHCYkk4O5mFIQwupu8_691QCaHTAEvYvWVv3oMqShWa2GLT_hzVIio4IyRDKc5c97TErhEhGxpAZPLihqHbrP6QlkMLoFXmoAMI1V-J8iJJzlt6Tz1Qpqak9A1nk1IXzPufGqA_dIQDJO4YfIPWhWQGLl6gmeFVqaTvpv3-tbFuc4Y1frEmFBEsU0I0tdPZHzFIp3CYxou-iimdW19d-1QXASJpYtTx33FSJYkXz9XhZhw6MjjfKjT9D0Y87WHF3mtSTuNNgshx2pLU7ZAoMuPtEFSSoE8k8jiLn0YODKYsWXwuRIhD6Q2eVawcJFsQID5k1inC_J29Z0yMimsNZ6bpAuKMorFgmFTbdHEoypTHII8bb1UNkuKAycjBRQmHAKJaDGDw6JpFeBxPhs3Uyxwc2VK7rC5AA-N9gwzCw1sqwnh3KKQFoWbdLAxEpEd-0lv4UBhcZsF2Jvqpiax3g4WwPZRb0Ude20MO9l5JneSkKkpc0CyqWZ0bsCkirZ8Gj1PTRq3Ng2Yo9B2_VVf1m8wMCJv4UMWtd9dJeKUysDdR_zqZB-_5uCA-DFW7-5Ek1t60Ni-ouwzViySjs_3S3P8tdqlffmg5HPjc24t4nlOeZGFeKMFlmmoy4pgHM2gBkV2SfhuQ1y6nuzKCgqbV4cjctPrKQxdssU090pN57ynfe2_9UCX7jHqfNJ6ORAxyX35k3X1zgOy6KrLW7FhXV1W0xaP1909kK4rygOO0EuG-L31hvvO6iC-MPks1zw1SF1A0ytY3C7Q-1uCaqz3RT_8VhJ_vm-7gIKnTFip26CfNj9yW249UnlWhz4aIhCxucrw" nonce="ca09a75f717b7739e743c3e72373a960" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9tYWlsLWF0dGFjaG1lbnQuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2F0dGFjaG1lbnQvdS8wLz91aT0yJmlrPTAzZDA5NmIxZWEmYXR0aWQ9MC4yJnBlcm1tc2dpZD1tc2ctZjoxNjY2NjA1OTEzNjc2ODA1MzU5JnRoPTE3MjBmOTNmOTk0NTc0ZWYmdmlldz1hdHQmZGlzcD1zYWZlJnJlYWxhdHRpZD1mX2thNXI5bWFvMiZzYWRkYmF0PUFOR2pkSl9ZbHlGbWZjOEpKb0VuNmF0SkhCNWJrRGRJMERNUkxGQ2ZET1BZZDBPbTF4R3pCc2R4dFRBcG14aHJqb2xjMkJpY2FnM2tLUlZLVk4wNUhGS0t2Vll2ZF9Nd24xZ000bmdPc3I1LTlibXlMU0ZwTElxUjFXWnhHUk00WDdFbU9EWVJtcTJ0RHBzbUtYN3AwTFpVME14cjMzMERuYU1Ya3dmX2doeDlwQVlGWWJLVjgzNXk3dTBBYzNYNy0xdkU2b3NXUUZQYXRpc1c3cEd3Vk1QYjZ3M2ZXV0xNZS1iTzVfeDlJczluWWhIdXpMSG9YVEtBbjU3R3QzdG9XdFZDal9IbTROUmQ5UnY5T0lONEdlZEVWaVdJdVp3NW1NUWRhc2Z6UDhfdTg1WVBrS19IUUlhMFB4VVdMbF9XWm94ZUw0aUNGNEVBeWZOenJ5OC1zTjFhZUJaZHFidmY5NExSaEowZktMZ1dRY3psenBrajFVazJYTTdFM1AtajlpbE5EYjZIamlEU1hUNkF3MDRleXZOTVFMd05JMnBhNms5NEhNTWF4cDJxNGJBZHlrUTlFdEhXamktMVJNZHhSNFVWcjJLWGE5dHJkZUpzaDdTakZvcU9STG9ZM0JxMHljSDJKUk43MG1mb0xrRzUtVFZlTXNwcmc1dzVQV3hsS2VNLTlsV1pTT1ZfYW13LWxjdXZuSHkxVUZuM1lMUnNJbE9rX1ZOUHFQWWZ1RHp3MGZrQmJmdVpFcG54OWktY0pVd05DcGhmcWhnS0VnWUtEVlBYZmppdkJuLTVnOWROamJCUDlIdmpFZW53ckJjZEQxcFJkQXk2TTdWQ0lHa3RlU0xwQzlRWlpzMWxwaldxOEVoQmRFb1BEY00zeEdlaVk4TG5kNnQ0ZW1BaFQtR05XRk5PMDdFbExHLXhZR00"/></head>
+<body>
+    <header>
+        <div class="head-wrap clearfix">
+            <p>Pravega <span>Ventures</span></p>
+            <div class="profile-div" onclick="nav_drop()">
+                <!-- <img src="pro-pic.jpg"> -->
+                <img src="/static/assets_new/img/Pushpak Kedia.jpg">
+                <div class="nav-drop" id="nav_drop">
+
+                    <p class="name">Martin Green</p>
+                    <p class="designation">UI/UX Developer</p>
+                    <a href="/Home/">
+                    <p class="nav-list">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5 12H2L12 3L22 12H19V20H13V14H11V20H5V12ZM17 10.19L12 5.69L7 10.19V18H9V12H15V18H17V10.19Z" fill="black"/>
+                            </svg>
+                        Home
+                    </p></a>
+                    <a href="/dashboard/">
+                    <p class="nav-list">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 6L18.29 8.29L13.41 13.17L9.41 9.17L2 16.59L3.41 18L9.41 12L13.41 16L19.71 9.71L22 12V6H16Z" fill="black"/>
+                            </svg>
+                        Current Feeds
+                    </p></a>
+                     <a href="/investordatabase/">
+                    <p class="nav-list  active">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7998 10.9C9.52982 10.31 8.79982 9.7 8.79982 8.75C8.79982 7.66 9.80982 6.9 11.4998 6.9C13.2798 6.9 13.9398 7.75 13.9998 9H16.2098C16.1398 7.28 15.0898 5.7 12.9998 5.19V3H9.99982V5.16C8.05982 5.58 6.49982 6.84 6.49982 8.77C6.49982 11.08 8.40982 12.23 11.1998 12.9C13.6998 13.5 14.1998 14.38 14.1998 15.31C14.1998 16 13.7098 17.1 11.4998 17.1C9.43982 17.1 8.62982 16.18 8.51982 15H6.31982C6.43982 17.19 8.07982 18.42 9.99982 18.83V21H12.9998V18.85C14.9498 18.48 16.4998 17.35 16.4998 15.3C16.4998 12.46 14.0698 11.49 11.7998 10.9Z" fill="black"/>
+                            </svg>
+                            Investors Database
+                    </p></a>
+                    <a href="">
+                    <p class="nav-list">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 6H17V4C17 2.89 16.11 2 15 2H9C7.89 2 7 2.89 7 4V6H4C2.89 6 2 6.89 2 8V19C2 20.11 2.89 21 4 21H20C21.11 21 22 20.11 22 19V8C22 6.89 21.11 6 20 6ZM9 4H15V6H9V4ZM20 19H4V17H20V19ZM20 14H4V8H7V10H9V8H15V10H17V8H20V14Z" fill="black"/>
+                            </svg>
+
+                            Professional Service
+                    </p></a>
+                    <a href="/logout/">
+                    <p class="nav-list">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.09 15.59L11.5 17L16.5 12L11.5 7L10.09 8.41L12.67 11H3V13H12.67L10.09 15.59ZM19 3H5C3.89 3 3 3.9 3 5V9H5V5H19V19H5V15H3V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3Z" fill="black"/>
+                            </svg>
+
+                        Log Out
+                    </p></a>
+
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <section class="top clearfix">
+                <div class="section-head">
+                    <div class="row">
+                        <div class="col-8">
+                            <p class="all-contacts ">Investor Database</p>
+                            <p class="head-description">Where you can see all the investors database</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aside" id="aside">
+                    <div class="filter-section clearfix">
+                        <p class="top-heading">
+                            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.33333 10H9.66667V8.33333H6.33333V10ZM0.5 0V1.66667H15.5V0H0.5ZM3 5.83333H13V4.16667H3V5.83333Z" fill="#1F1F1F"/>
+                                <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="10">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.33333 10H9.66667V8.33333H6.33333V10ZM0.5 0V1.66667H15.5V0H0.5ZM3 5.83333H13V4.16667H3V5.83333Z" fill="white"/>
+                                </mask>
+                                <g mask="url(#mask0)">
+                                <rect x="-12.8335" y="-15.8333" width="41.6667" height="41.6667" fill="#333333"/>
+                                <mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="-13" y="-16" width="42" height="42">
+                                <rect x="-12.8335" y="-15.8333" width="41.6667" height="41.6667" fill="white"/>
+                                </mask>
+                                <g mask="url(#mask1)">
+                                </g>
+                                </g>
+                                </svg>
+                                Filter Your Search
+                        </p>
+                        <button class="top-btn">Reset</button>
+                    </div>
+                    <div class="filter-section ">
+                        <div class="filter-section-head-div clearfix">
+                            <p class="filter-heading">Type of Funds</p>
+                            <button class="filter-toggle-btn" onclick="toggleFund()">
+                                <img src="/static/assets_new/img/ic_arrow_drop_up.svg">
+                            </button>
+                        </div>
+                        <div class="fund-wrap" id="fundWrap">
+                            <label class="container1">Ventures Fund
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container1">Debit Fund
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        </div>
+                    </div>
+                    <div class="filter-section ">
+                        <div class="filter-section-head-div clearfix">
+                            <p class="filter-heading">Choose Stages</p>
+                            <button class="filter-toggle-btn" onclick="toggleStages()">
+                                <img src="/static/assets_new/img/ic_arrow_drop_up.svg">
+                            </button>
+                        </div>
+                        <div class="stages-wrap" id="stagesWrap">
+                        <label class="container1">Series A
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container1">Series B
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container1">Series C
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container1">Series D
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container1">Series E
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container1">Series F
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <button class="view-more">View More</button>
+                        </div>
+                    </div>
+                    <div class="filter-section ">
+                        <div class="filter-section-head-div clearfix">
+                            <p class="filter-heading">Select Location</p>
+                            <button class="filter-toggle-btn" onclick="toggleLoc()">
+                                <img src="/static/assets_new/img/ic_arrow_drop_up.svg">
+                            </button>
+                        </div>
+                        <div class="loc-wrap" id="locWrap">
+                        <label class="container1">Bangalore
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container1">Mumabi
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container1">Mumabi
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container1">Mumabi
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container1">Mumabi
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <button class="view-more">View More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="investers-wrap">
+                    {% for invester in invester %}
+                    <div class="invester-details">
+                        <div class="invester-detail-header">
+                            <div class="row">
+                                <div class="col-7">
+                                    <p class="company-name">{{invester.name}}</p>
+                                    <p class="type-location">{{invester.fund_type}} ,{{invester.location}}</p>
+                                </div>
+                                <div class="col-5">
+                                    <button id="{{ invester.id }}" class="btn-connect">Connect</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="tab-heading">Partners</p>
+                                        <p class="tab-detail">{{invester.partners}}</p>
+                                        <!--<p class="tab-detail">Carlos Santos</p>-->
+
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="tab-heading">Pravega Relationship</p>
+                                         {% for connection in invester.pravega_relationship.all %}
+                                        <p class="tab-detail">{{ connection.first_name }} {{ connection.last_name }}</p>
+                                        <!--<p class="tab-detail">Pushpak</p>-->
+                                         {% endfor %}
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="tab-heading comman">Comman Pravega Investments</p>
+                                        <p class="tab-detail comman">{{invester.common_pravega_investment}}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-6 note-border">
+                                <div class="note-wrap">
+                                    <p class="note">NOTES</p>
+                                    <p class="note-detail">
+                                      {{invester.note}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!--<div class="invester-details">-->
+                        <!--<div class="invester-detail-header">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-7">-->
+                                    <!--<p class="company-name">Accel Infotech Private Solutions</p>-->
+                                    <!--<p class="type-location">Venture Fund ,Bangalore</p>-->
+                                <!--</div>-->
+                                <!--<div class="col-5">-->
+                                    <!--<button class="btn-connect">Connect</button>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-6">-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-6">-->
+                                        <!--<p class="tab-heading">Partners</p>-->
+                                        <!--<p class="tab-detail">Carlos Santos</p>-->
+                                        <!--<p class="tab-detail">Carlos Santos</p>-->
+
+                                    <!--</div>-->
+                                    <!--<div class="col-6">-->
+                                        <!--<p class="tab-heading">Pravega Relationship</p>-->
+                                        <!--<p class="tab-detail">Pushpak</p>-->
+                                        <!--<p class="tab-detail">Pushpak</p>-->
+
+                                    <!--</div>-->
+                                    <!--<div class="col-12">-->
+                                        <!--<p class="tab-heading comman">Comman Pravega Investments</p>-->
+                                        <!--<p class="tab-detail comman">ABC Infotech Private Solution</p>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+                            <!--<div class="col-6 note-border">-->
+                                <!--<div class="note-wrap">-->
+                                    <!--<p class="note">NOTES</p>-->
+                                    <!--<p class="note-detail">-->
+                                        <!--Recently, the US Federal government banned online casinos from operating in America by making it illegal to transfer money to them through any US bank or payment system. As a result of this law, most of the popular online casino networks such as Party Gaming and PlayTech left the United States. Overnight, online casino players found themselves being chased by the Federal government. But, after a fortnight, the online casino industry came up with a solution and new online casinos started taking root.-->
+                                    <!--</p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="invester-details">-->
+                        <!--<div class="invester-detail-header">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-7">-->
+                                    <!--<p class="company-name">Accel Infotech Private Solutions</p>-->
+                                    <!--<p class="type-location">Venture Fund ,Bangalore</p>-->
+                                <!--</div>-->
+                                <!--<div class="col-5">-->
+                                    <!--<button class="btn-connect">Connect</button>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-6">-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-6">-->
+                                        <!--<p class="tab-heading">Partners</p>-->
+                                        <!--<p class="tab-detail">Carlos Santos</p>-->
+                                        <!--<p class="tab-detail">Carlos Santos</p>-->
+
+                                    <!--</div>-->
+                                    <!--<div class="col-6">-->
+                                        <!--<p class="tab-heading">Pravega Relationship</p>-->
+                                        <!--<p class="tab-detail">Pushpak</p>-->
+                                        <!--<p class="tab-detail">Pushpak</p>-->
+
+                                    <!--</div>-->
+                                    <!--<div class="col-12">-->
+                                        <!--<p class="tab-heading comman">Comman Pravega Investments</p>-->
+                                        <!--<p class="tab-detail comman">ABC Infotech Private Solution</p>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+                            <!--<div class="col-6 note-border">-->
+                                <!--<div class="note-wrap">-->
+                                    <!--<p class="note">NOTES</p>-->
+                                    <!--<p class="note-detail">-->
+                                        <!--Recently, the US Federal government banned online casinos from operating in America by making it illegal to transfer money to them through any US bank or payment system. As a result of this law, most of the popular online casino networks such as Party Gaming and PlayTech left the United States. Overnight, online casino players found themselves being chased by the Federal government. But, after a fortnight, the online casino industry came up with a solution and new online casinos started taking root.-->
+                                    <!--</p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="invester-details">-->
+                        <!--<div class="invester-detail-header">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-7">-->
+                                    <!--<p class="company-name">Accel Infotech Private Solutions</p>-->
+                                    <!--<p class="type-location">Venture Fund ,Bangalore</p>-->
+                                <!--</div>-->
+                                <!--<div class="col-5">-->
+                                    <!--<button class="btn-connect">Connect</button>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-6">-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-6">-->
+                                        <!--<p class="tab-heading">Partners</p>-->
+                                        <!--<p class="tab-detail">Carlos Santos</p>-->
+                                        <!--<p class="tab-detail">Carlos Santos</p>-->
+
+                                    <!--</div>-->
+                                    <!--<div class="col-6">-->
+                                        <!--<p class="tab-heading">Pravega Relationship</p>-->
+                                        <!--<p class="tab-detail">Pushpak</p>-->
+                                        <!--<p class="tab-detail">Pushpak</p>-->
+
+                                    <!--</div>-->
+                                    <!--<div class="col-12">-->
+                                        <!--<p class="tab-heading comman">Comman Pravega Investments</p>-->
+                                        <!--<p class="tab-detail comman">ABC Infotech Private Solution</p>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+                            <!--<div class="col-6 note-border">-->
+                                <!--<div class="note-wrap">-->
+                                    <!--<p class="note">NOTES</p>-->
+                                    <!--<p class="note-detail">-->
+                                        <!--Recently, the US Federal government banned online casinos from operating in America by making it illegal to transfer money to them through any US bank or payment system. As a result of this law, most of the popular online casino networks such as Party Gaming and PlayTech left the United States. Overnight, online casino players found themselves being chased by the Federal government. But, after a fortnight, the online casino industry came up with a solution and new online casinos started taking root.-->
+                                    <!--</p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="invester-details">-->
+                        <!--<div class="invester-detail-header">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-7">-->
+                                    <!--<p class="company-name">Accel Infotech Private Solutions</p>-->
+                                    <!--<p class="type-location">Venture Fund ,Bangalore</p>-->
+                                <!--</div>-->
+                                <!--<div class="col-5">-->
+                                    <!--<button class="btn-connect">Connect</button>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-6">-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-6">-->
+                                        <!--<p class="tab-heading">Partners</p>-->
+                                        <!--<p class="tab-detail">Carlos Santos</p>-->
+                                        <!--<p class="tab-detail">Carlos Santos</p>-->
+
+                                    <!--</div>-->
+                                    <!--<div class="col-6">-->
+                                        <!--<p class="tab-heading">Pravega Relationship</p>-->
+                                        <!--<p class="tab-detail">Pushpak</p>-->
+                                        <!--<p class="tab-detail">Pushpak</p>-->
+
+                                    <!--</div>-->
+                                    <!--<div class="col-12">-->
+                                        <!--<p class="tab-heading comman">Comman Pravega Investments</p>-->
+                                        <!--<p class="tab-detail comman">ABC Infotech Private Solution</p>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+                            <!--<div class="col-6 note-border">-->
+                                <!--<div class="note-wrap">-->
+                                    <!--<p class="note">NOTES</p>-->
+                                    <!--<p class="note-detail">-->
+                                        <!--Recently, the US Federal government banned online casinos from operating in America by making it illegal to transfer money to them through any US bank or payment system. As a result of this law, most of the popular online casino networks such as Party Gaming and PlayTech left the United States. Overnight, online casino players found themselves being chased by the Federal government. But, after a fortnight, the online casino industry came up with a solution and new online casinos started taking root.-->
+                                    <!--</p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+
+                    <div class="pagination-wrap">
+                        {% if invester.has_other_pages %}
+                        <div class="btn-grp">
+                             {% if invester.has_previous %}
+                             <button onclick="window.location.href='?page={{invester.previous_page_number}}'" class="paginate previous"><i class="fas fa-caret-left"></i></button>
+
+                             {% else %}
+                            <button class="disable previous"><i class="fas fa-caret-left"></i></button>
+
+                            {% endif %}
+                            {% for i in invester.paginator.page_range %}
+                              {% if invester.number == i %}
+                                <button id="{{ i }}" class="active paginate pg previous"><span>{{ i }} <span class="sr-only">(current)</span></span></button>
+                             {% else %}
+                              <button onclick="window.location.href='?page={{ i }}'" class="paginate previous">{{ i }}</button>
+                              {% endif %}
+                           {% endfor %}
+                            <!--<button>2</button>-->
+                            <!--<button>3</button>-->
+                            <!--<button>4</button>-->
+                             {% if invester.has_next %}
+                             <button onclick="window.location.href='?page={{ invester.next_page_number }}'" class="paginate previous"><i class="fas fa-caret-right"></i></button>
+                            {% else %}
+                            <button class="disable previous"><i class="fas fa-caret-left"></i></button>
+                        {% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </section>
+            <section class="modal1 " id="modal">
+                <div class="modal1-content ">
+                    <div class="modal1-header clearfix">
+                        <p>Send Mail</p>
+                        <button id="close"class="close modal-close-send">&times;</button>
+                    </div>
+                    <textarea class="text1" placeholder="About Pravega Ventures…. "></textarea>
+                    <div class="modal1-footer">
+                        <button class="btn-cancel modal-close-send">Cancel</button>
+                        <button class="btn-send btnpress1">Send</button>
+                    </div>
+
+               </div>
+            </section>
+            <!-- ---------------mail sucessful--------------- -->
+            <section class="modal1 " id="modal_sendMailSucess">
+                <div class="modal-content ">
+                    <div class="modal1-header clearfix">
+                        <button id="close"class="close modal-close_sendMail">&times;</button>
+                    </div>
+                    <div class="content">
+                        <svg width="89" height="69" viewBox="0 0 89 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M56.7682 52.9576C56.7682 44.0215 63.9674 36.7785 72.8478 36.7785C74.6498 36.7785 76.3825 37.0768 78 37.6263C78 23.5662 78 3.54507 78 2.78253C78 1.252 76.755 0 75.2339 0H2.76609C1.2443 0 0 1.252 0 2.78253V51.2175C0 52.748 1.2443 54 2.76609 54H56.8022C56.7804 53.6553 56.7682 53.3078 56.7682 52.9576Z" fill="#FFD25D"/>
+                            <path d="M56.6016 52.9576C56.6016 46.8109 59.9975 41.4649 65 38.7261L53.0109 27L47.154 32.7275C42.5466 37.2352 35.2245 37.2352 30.6164 32.7275L24.7602 27L0 51.2175C0 52.748 1.24065 54 2.75797 54H56.6354C56.6138 53.6553 56.6016 53.3078 56.6016 52.9576Z" fill="#EDBE56"/>
+                            <path d="M75.2339 0H2.76609C1.2443 0 0 1.23593 0 2.74681L30.7065 32.6632C35.3282 37.1123 42.6718 37.1123 47.2928 32.6632L78 2.74681C78 1.23593 76.755 0 75.2339 0V0Z" fill="#FFDF8B"/>
+                            <path d="M89 52.5003C89 61.6128 81.613 69 72.5 69C63.3877 69 56 61.6128 56 52.5003C56 43.3872 63.3877 36 72.5 36C81.613 36 89 43.3872 89 52.5003Z" fill="#1DD1A1"/>
+                            <path d="M78.7515 47.3786L71.1157 54.8771L67.2485 51.0795C66.7338 50.5747 65.9002 50.5747 65.3855 51.0795C64.8715 51.5843 64.8715 52.4036 65.3855 52.9083L70.1842 57.6208C70.4412 57.8731 70.7788 58 71.1157 58C71.4526 58 71.7895 57.8731 72.0472 57.6208L80.6145 49.2075C81.1285 48.7027 81.1285 47.8834 80.6145 47.3786C80.0998 46.8738 79.2662 46.8738 78.7515 47.3786Z" fill="#E4EAF8"/>
+                        </svg>
+                        <p>Your message has been sucessfully sent !</p>
+
+                    </div>
+                    <div class="modal1-footer">
+                        <button id="closemail"class="btn-send">OK</button>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+        </article>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+
+    <script>
+
+        $(document).ready(function(){
+            $('.btn-connect').click(function(){
+                $("#modal").show();
+                $('body').css('overflow', 'hidden');
+            });
+
+            $('.modal-close-send').click(function(){
+                $("#modal").hide();
+                $('body').css('overflow', 'auto');
+            });
+
+            $('.btn-apply-filter').click(function(){
+                $("#modal_filter").show();
+                $('body').css('overflow', 'hidden');
+            });
+            $('.modal-close-filter').click(function(){
+                $("#modal_filter").hide();
+                $('body').css('overflow', 'auto');
+            });
+        });
+        document.getElementById("nav_drop").style.display = "none";
+        function nav_drop() {
+            var nav = document.getElementById("nav_drop");
+            console.log(nav.style.display);
+            if (nav.style.display === "none") {
+                console.log("if none");
+                nav.style.display = "block";
+            } else {
+                nav.style.display = "none";
+                console.log("else");
+            }
+            }
+
+        function toggleFund() {
+            var nav = document.getElementById("fundWrap");
+            console.log(nav.style.display);
+            if (nav.style.display === "none") {
+                console.log("if none");
+                nav.style.display = "block";
+            } else {
+                nav.style.display = "none";
+                console.log("else");
+            }
+            }
+            function toggleStages() {
+            var nav = document.getElementById("stagesWrap");
+            console.log(nav.style.display);
+            if (nav.style.display === "none") {
+                console.log("if none");
+                nav.style.display = "block";
+            } else {
+                nav.style.display = "none";
+                console.log("else");
+            }
+            }
+            function toggleLoc() {
+            var nav = document.getElementById("locWrap");
+            console.log(nav.style.display);
+            if (nav.style.display === "none") {
+                console.log("if none");
+                nav.style.display = "block";
+            } else {
+                nav.style.display = "none";
+                console.log("else");
+            }
+            }
+
+
+
+
+
+            function toggleFilter() {
+            var filter = document.getElementById("aside");
+            console.log(filter.style.display);
+            if (filter.style.display === "none") {
+                console.log("if none");
+                filter.style.display = "block";
+            } else {
+                filter.style.display = "none";
+                console.log("else");
+            }
+            }
+
+
+
+    $('.btn-connect').on('click',function (){
+       id=  $(this).attr("id");
+       $('.btnpress1').attr('id',id);
+
+
+
+    });
+
+         $('.btnpress1').on('click',function () {
+           $.ajax({
+
+                    method: "GET",
+                    url: "/investoremail/",
+
+                    data: {'pid':$('.btnpress1').attr("id"),'content':$(".text1").val()},
+                    success: function(data) {
+                    //debugger
+                         $('.text1').val('');
+                         $("#modal").hide();
+
+                         $("#modal_sendMailSucess").show();
+
+                }
+            })
+     });
+      $('#close').on('click',function (){
+
+        $("#modal_sendMailSucess").hide();
+
+    });
+    $('#closemail').on('click',function (){
+
+        $("#modal_sendMailSucess").hide();
+
+    });
+
+
+    </script>
+</body>
+</html>

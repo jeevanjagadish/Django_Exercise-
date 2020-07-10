@@ -1,0 +1,85 @@
+{% extends 'base_new.html' %}
+{% block class_tab2 %}active{% endblock %}
+ {% block content %}
+
+
+
+
+    <section class='team-intro'>
+        <div class="container">
+<!--            <label for="" class="page-pill">{{HeroSection.}}</label>-->
+            <h1>{{HeroSection.title}}</h1>
+        </div>
+    </section>
+
+    <div class="team-grid">
+        <div class="container">
+            <div class="team-wrapper">
+                {% for teamob in team %}
+                <div class="team-item" onclick="openModal({{ teamob.id }})" style="background-image:url(https://pravega-contactimages-ap-south-1.s3.amazonaws.com/media/{{teamob.image}})">
+                    <div class="team-info">
+                        <h3 class="name">{{teamob.name}}</h3>
+                        <p class="designation">{{teamob.position|default_if_none:""}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+     {% for member in team %}
+        <div class="modal" id="modal-{{member.id}}">
+            <div class="cover">
+                <img src="{{member.image.url}}" data-team-id="{{member.id}}" alt="">
+            </div>
+            <div class="detail team-detail">
+                <button id="closeModal" onclick="closeModal({{ member.id }})">
+                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4996 10.4995L1.38875 19.6103L0.681641 18.9032L9.79247 9.79235L1.00008 0.999953L1.70718 0.292847L10.4996 9.08524L19.292 0.292847L19.9991 0.999953L11.2067 9.79235L20.3175 18.9032L19.6104 19.6103L10.4996 10.4995Z" fill="white"/>
+                    </svg>
+                </button>
+                <div class="detail-content">
+                    <h1 class="title">{{member.name}}</h1>
+                    <p class="caption">{{member.position|default_if_none:""}}</p>
+                    <p class="about">{{member.description}}</p>
+                    <!--<p class="about">He invests in Consumer Internet, Mobililty and Marketplaces. He holds a B.Tech from IIT Kanpur and an MBA from ISB, Hyderabad.</p>-->
+                    <div class="social-links">
+                        <a href="{{member.linkedin_url}}" target="_blank"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.9259 0C6.23603 0 0 6.23603 0 13.9259C0 21.6158 6.23603 27.8519 13.9259 27.8519C21.6158 27.8519 27.8519 21.6158 27.8519 13.9259C27.8519 6.23603 21.6158 0 13.9259 0ZM9.87921 21.0521H6.48762V10.8484H9.87921V21.0521ZM8.18352 9.45508H8.16142C7.02331 9.45508 6.28724 8.67162 6.28724 7.69245C6.28724 6.69118 7.04584 5.9294 8.20605 5.9294C9.36626 5.9294 10.0802 6.69118 10.1023 7.69245C10.1023 8.67162 9.36626 9.45508 8.18352 9.45508ZM22.1086 21.0521H18.7174V15.5934C18.7174 14.2215 18.2264 13.2859 16.9992 13.2859C16.0623 13.2859 15.5043 13.917 15.2591 14.5262C15.1694 14.7442 15.1475 15.049 15.1475 15.3539V21.0521H11.7562C11.7562 21.0521 11.8006 11.8057 11.7562 10.8484H15.1475V12.2931C15.5982 11.5979 16.4047 10.6089 18.204 10.6089C20.4354 10.6089 22.1086 12.0673 22.1086 15.2013V21.0521Z" fill="white"/>
+                            </svg>
+                            </a>
+                        <a href="mailto:{{member.email}}" target=_blank"><svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                            <path d="M19.9656 8.95238H8.72852L14.3471 13.7683L19.9656 8.95238Z" fill="white"/>
+                            <path d="M14.3484 14.9206C14.2297 14.9206 14.1148 14.8781 14.0247 14.8007L7.88281 9.53619V18.8995H20.814V9.53619L14.6721 14.8007C14.582 14.8781 14.4672 14.9206 14.3484 14.9206Z" fill="white"/>
+                            <path d="M14.3478 0C6.65678 0 0.421875 6.2349 0.421875 13.9259C0.421875 21.617 6.65678 27.8519 14.3478 27.8519C22.0388 27.8519 28.2737 21.617 28.2737 13.9259C28.265 6.23854 22.0352 0.00874256 14.3478 0ZM21.8081 19.3968C21.8081 19.6715 21.5854 19.8942 21.3108 19.8942H7.38484C7.11018 19.8942 6.88748 19.6715 6.88748 19.3968V8.45503C6.88748 8.18036 7.11018 7.95767 7.38484 7.95767H21.3108C21.5854 7.95767 21.8081 8.18036 21.8081 8.45503V19.3968Z" fill="white"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0">
+                            <rect x="0.421875" width="27.8519" height="27.8519" fill="white"/>
+                            </clipPath>
+                            </defs>
+                            </svg>
+                            </a>
+                            <a href="{{member.twitter_url}}"  target="_blank"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.0744 0C6.38446 0 0.148438 6.23603 0.148438 13.9259C0.148438 21.6158 6.38446 27.8519 14.0744 27.8519C21.7643 27.8519 28.0003 21.6158 28.0003 13.9259C28.0003 6.23603 21.7643 0 14.0744 0ZM20.4328 10.858C20.4389 10.995 20.4419 11.1327 20.4419 11.271C20.4419 15.4948 17.2269 20.3653 11.3474 20.3655C9.54232 20.3655 7.86256 19.8364 6.448 18.9297C6.6981 18.9592 6.95267 18.9739 7.21042 18.9739C8.70807 18.9739 10.0863 18.4631 11.1804 17.6057C9.78116 17.5797 8.6014 16.6556 8.19426 15.3855C8.38912 15.4229 8.5895 15.4433 8.79498 15.4433C9.08673 15.4433 9.36935 15.404 9.63794 15.3307C8.17535 15.0379 7.07358 13.7453 7.07358 12.1975C7.07358 12.1831 7.07358 12.1701 7.074 12.1567C7.50472 12.3962 7.99728 12.5403 8.52172 12.5564C7.66346 11.9837 7.09929 11.0048 7.09929 9.89579C7.09929 9.31016 7.2576 8.7615 7.53214 8.28913C9.10841 10.2232 11.4641 11.4952 14.1207 11.6289C14.0659 11.3947 14.0376 11.1508 14.0376 10.9C14.0376 9.13549 15.4692 7.70393 17.2343 7.70393C18.1538 7.70393 18.9842 8.09257 19.5675 8.7139C20.2957 8.57026 20.9795 8.30422 21.5972 7.93809C21.3582 8.68415 20.8516 9.31016 20.1916 9.70603C20.8382 9.62868 21.4545 9.4572 22.0271 9.20264C21.5994 9.84373 21.0569 10.4068 20.4328 10.858Z" fill="white"/>
+                                </svg>
+                                </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+    <!--modal Ends-->
+{% endblock %}
+{% block script %}
+    <script src="/static/assets_new/js/main.js"></script>
+</script>
+{% endblock%}
+
+{% block class_footer2 %}active{% endblock %}

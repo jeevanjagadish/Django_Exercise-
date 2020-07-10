@@ -1,0 +1,175 @@
+{% extends 'base_new.html' %}
+{% block class_tab3 %}active{% endblock %}
+ {% block content %}
+
+    <!--navigation Ends-->
+    <section class="blog-view-header">
+        <div class="container">
+            <div class="top-wrapper">
+                <div class="breadcrumb">
+                    <a href="/blogs/">BLOGS</a>
+                    <a>{{ post.title }} </a>
+                </div>
+                <div class="share-links">
+                    <input type="hidden" id="input-url" value="Copied!">
+
+                    <a id="link" class="popup" href="javascript:copyPop()" class="click-copy shareBtn"><span class="popuptext" id="myPopup">Copied!</span><svg width="32"  height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+U
+
+                        <g clip-path="url(#clip0)">
+                        <path d="M15.829 0.342072C7.08693 0.342072 0 7.429 0 16.171C0 24.9131 7.08693 32 15.829 32C24.571 32 31.6579 24.9131 31.6579 16.171C31.648 7.43314 24.5669 0.352009 15.829 0.342072ZM23.0244 12.9729L19.8262 16.171C18.8758 17.1189 17.3902 17.2691 16.2692 16.5299L16.1878 16.6113C16.927 17.7323 16.7769 19.2179 15.829 20.1683L12.6308 23.3664C11.5256 24.462 9.74266 24.4582 8.64238 23.3576C7.54183 22.2573 7.53797 20.4744 8.63355 19.3692L11.8317 16.171C12.7821 15.2231 14.2677 15.073 15.3887 15.8122L15.4701 15.7308C14.7309 14.6098 14.8811 13.1242 15.829 12.1738L19.0271 8.97562C20.1323 7.88004 21.9153 7.8839 23.0155 8.98446C24.1161 10.0847 24.12 11.8676 23.0244 12.9729V12.9729Z" fill="#1F1F1F"/>
+                        <path d="M21.0237 9.27872C20.5737 9.27762 20.142 9.45649 19.8246 9.77559L16.6267 12.9729C16.1221 13.4816 15.9918 14.2523 16.3004 14.8985L17.4261 13.7729C17.6478 13.5586 18.0005 13.5617 18.2186 13.7798C18.4367 13.9978 18.4397 14.3506 18.2255 14.5722L17.0998 15.6979C17.746 16.0065 18.5167 15.8762 19.0255 15.3716L22.2228 12.1738C22.7078 11.6885 22.8527 10.9592 22.5902 10.3257C22.3279 9.69195 21.7096 9.27872 21.0237 9.27872V9.27872Z" fill="#1F1F1F"/>
+                        <path d="M14.2289 18.5692C14.0072 18.7834 13.6544 18.7804 13.4364 18.5623C13.2183 18.3442 13.2153 17.9915 13.4295 17.7698L14.5546 16.6441C13.9092 16.3294 13.1352 16.4606 12.6295 16.9704L9.4322 20.1683C8.76999 20.8308 8.76999 21.9043 9.4322 22.5665C10.1032 23.2069 11.1591 23.2069 11.8304 22.5665L15.0283 19.3691C15.5329 18.8604 15.6632 18.0897 15.3545 17.4435L14.2289 18.5692Z" fill="#1F1F1F"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0">
+                        <rect y="0.342072" width="31.6579" height="31.6579" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                        </a>
+                    <a id="linkedin" href="" target="_blank"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                        <path d="M16.6102 0.342072C7.86945 0.342072 0.78125 7.43027 0.78125 16.171C0.78125 24.9118 7.86945 32 16.6102 32C25.351 32 32.4392 24.9118 32.4392 16.171C32.4392 7.43027 25.351 0.342072 16.6102 0.342072ZM12.0105 24.271H8.15543V12.6729H12.0105V24.271ZM10.0831 11.0892H10.058C8.76432 11.0892 7.92766 10.1987 7.92766 9.08573C7.92766 7.94763 8.78993 7.08175 10.1087 7.08175C11.4274 7.08175 12.239 7.94763 12.2641 9.08573C12.2641 10.1987 11.4274 11.0892 10.0831 11.0892ZM25.9111 24.271H22.0565V18.0663C22.0565 16.507 21.4983 15.4435 20.1035 15.4435C19.0386 15.4435 18.4043 16.1609 18.1256 16.8534C18.0236 17.1012 17.9988 17.4475 17.9988 17.7941V24.271H14.1439C14.1439 24.271 14.1944 13.761 14.1439 12.6729H17.9988V14.3151C18.5111 13.5248 19.4277 12.4007 21.4729 12.4007C24.0093 12.4007 25.9111 14.0584 25.9111 17.6207V24.271Z" fill="#1F1F1F"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0">
+                        <rect x="0.78125" y="0.342072" width="31.6579" height="31.6579" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                        </a>
+                    <a id="twitter" href="" target="_blank"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                        <path d="M16.3915 0.342072C7.6507 0.342072 0.5625 7.43027 0.5625 16.171C0.5625 24.9118 7.6507 32 16.3915 32C25.1322 32 32.2204 24.9118 32.2204 16.171C32.2204 7.43027 25.1322 0.342072 16.3915 0.342072ZM23.6188 12.6838C23.6258 12.8396 23.6292 12.9961 23.6292 13.1533C23.6292 17.9543 19.9748 23.4904 13.2919 23.4906H13.2921H13.2919C11.2401 23.4906 9.33079 22.8892 7.72292 21.8586C8.0072 21.8922 8.29656 21.9088 8.58953 21.9088C10.2918 21.9088 11.8584 21.3282 13.1021 20.3536C11.5116 20.3242 10.1706 19.2737 9.70782 17.8301C9.9293 17.8726 10.1571 17.8958 10.3906 17.8958C10.7223 17.8958 11.0435 17.8511 11.3488 17.7678C9.68632 17.435 8.43399 15.9657 8.43399 14.2064C8.43399 14.19 8.43399 14.1753 8.43447 14.16C8.92405 14.4323 9.48392 14.596 10.08 14.6144C9.10448 13.9634 8.46321 12.8507 8.46321 11.5902C8.46321 10.9245 8.64315 10.3009 8.95521 9.76395C10.7469 11.9624 13.4245 13.4082 16.4441 13.5601C16.3818 13.2939 16.3497 13.0166 16.3497 12.7316C16.3497 10.726 17.9769 9.09877 19.9833 9.09877C21.0284 9.09877 21.9723 9.54053 22.6353 10.2468C23.463 10.0835 24.2402 9.78109 24.9424 9.36494C24.6707 10.213 24.0948 10.9245 23.3446 11.3745C24.0796 11.2866 24.7801 11.0916 25.431 10.8023C24.9448 11.531 24.3282 12.171 23.6188 12.6838V12.6838Z" fill="#1F1F1F"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0">
+                        <rect x="0.5625" y="0.342072" width="31.6579" height="31.6579" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                        </a>
+                   <a id="facebook" href="" target="_blank"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                        <path d="M18.7232 31.794C18.5914 31.8155 18.459 31.8353 18.3262 31.8534C18.459 31.8353 18.5914 31.8155 18.7232 31.794Z" fill="black"/>
+                        <path d="M19.0387 31.7399C18.9757 31.7515 18.9126 31.7621 18.8496 31.773C18.9126 31.7621 18.9757 31.7515 19.0387 31.7399Z" fill="black"/>
+                        <path d="M17.9732 31.8973C17.8189 31.9147 17.6636 31.9302 17.5078 31.9432C17.6636 31.9302 17.8189 31.9147 17.9732 31.8973Z" fill="black"/>
+                        <path d="M18.2759 31.8601C18.2018 31.87 18.1271 31.8792 18.0527 31.8879C18.1271 31.8792 18.2018 31.87 18.2759 31.8601Z" fill="black"/>
+                        <path d="M19.4699 31.6544C19.4143 31.6662 19.3585 31.678 19.3027 31.6894C19.3585 31.678 19.4143 31.6662 19.4699 31.6544Z" fill="black"/>
+                        <path d="M20.541 31.3887C20.4961 31.4015 20.4512 31.4135 20.4062 31.4261C20.4512 31.4135 20.4961 31.4015 20.541 31.3887Z" fill="black"/>
+                        <path d="M20.2172 31.4771C20.1684 31.4899 20.1193 31.5029 20.0703 31.5152C20.1193 31.5029 20.1684 31.4901 20.2172 31.4771Z" fill="black"/>
+                        <path d="M19.7927 31.5829C19.7411 31.5949 19.6889 31.6063 19.6367 31.6179C19.6889 31.6063 19.7411 31.5949 19.7927 31.5829Z" fill="black"/>
+                        <path d="M17.5022 31.9437C17.4189 31.9507 17.3355 31.957 17.252 31.9626C17.3355 31.957 17.4189 31.9507 17.5022 31.9437Z" fill="black"/>
+                        <path d="M31.9997 16.171C31.9997 7.43027 24.9115 0.342072 16.1708 0.342072C7.43 0.342072 0.341797 7.43027 0.341797 16.171C0.341797 24.9118 7.43 32 16.1708 32C16.2637 32 16.3563 31.9981 16.449 31.9964V19.6742H13.0482V15.7109H16.449V12.7944C16.449 9.41203 18.5138 7.57109 21.531 7.57109C22.9759 7.57109 24.2178 7.67881 24.5799 7.72687V11.2619H22.4993C20.8579 11.2619 20.54 12.0421 20.54 13.1867V15.7109H24.4649L23.9534 19.6742H20.54V31.3884C27.1563 29.4917 31.9997 23.3962 31.9997 16.171Z" fill="#1F1F1F"/>
+                        <path d="M17.2168 31.9647C17.0521 31.9753 16.8866 31.9838 16.7207 31.9894C16.8866 31.9838 17.0521 31.9753 17.2168 31.9647Z" fill="black"/>
+                        <path d="M16.712 31.9898C16.6246 31.9927 16.5369 31.9949 16.4492 31.9964C16.5369 31.9949 16.6246 31.9927 16.712 31.9898Z" fill="black"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0">
+                        <rect x="0.341797" y="0.342072" width="31.6579" height="31.6579" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                        </a>
+                </div>
+            </div>
+            <img src="https://pravega-contactimages-ap-south-1.s3.amazonaws.com/media/{{ post.featured_image }}" class="blog-header-img" alt="">
+        </div>
+    </section>
+    <div class="blog-view-detail">
+        <div class="container">
+            <p class="topic">{{ post.topic }}</p>
+            <h1 class="blog-title"> {{ post.title }} </h1>
+            <p class="summary">{{ post.sub_title }}</p>
+            <p class="posted-info">{{ post.user.first_name }} {{ post.user.last_name }},  <span>  Published: {{ post.publish_date|date:" d M, Y"}}</span></p>
+        </div>
+    </div>
+    <article class="blog-body">
+        <div class="container">
+            <div class="blog-grid">
+                <div class="left"><div class="decorator-line"></div></div>
+                <div class="center">
+                    <div class="blog-body-content">
+                         <p>{{ post.content| safe }} </p>
+
+                    </div>
+
+                    <div class="comments">
+                        <div id="disqus_thread"></div>
+                            <script>
+
+                            /**
+                            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                            /*
+                            var disqus_config = function () {
+                            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                            };
+                            */
+                            (function() { // DON'T EDIT BELOW THIS LINE
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://pravegavcbeta.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                            })();
+                            </script>
+                            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+                    </div>
+                </div>
+                <div class="right">
+                    <h3>Tags</h3>
+                     {% for category in post.categories.all %}
+                    <a  class="tag">  {{ category }} </a>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+
+
+{% endblock %}
+{% block script %}
+   <script id="dsq-count-scr" src="//pravegavcbeta.disqus.com/count.js" async></script>
+    <script src="/static/assets_new/js/main.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script>
+ $( document ).ready(function() {
+
+       $('#twitter').attr('href','https://twitter.com/share?url='+window.location.href)
+      $('#facebook').attr('href','https://www.facebook.com/sharer/sharer.php?u='+window.location.href)
+       $('#linkedin').attr('href',"http://www.linkedin.com/shareArticle?url="+ window.location.href)
+       $('#link').attr('onclick', 'return copyToClipboard("'+ window.location.href +'")')
+
+
+
+
+ });
+
+function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val(window.location.href).select();
+  document.execCommand("copy");
+  $temp.remove();
+
+}
+
+function copyPop() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+  setTimeout(removePop, 5000);
+
+  function removePop() {
+    popup.classList.toggle("hide");
+  }
+}
+</script>
+
+{% endblock%}
+{% block class_footer3 %}active{% endblock %}

@@ -1,0 +1,120 @@
+{% extends 'base_new.html' %}
+{% block class_tab4 %}active{% endblock %}
+ {% block content %}
+    <section class="contact">
+        <div class="left">
+            <div class="contact-content">
+                <h1>Get in Touch</h1>
+                <h3>Pravega Ventures</h3>
+                <div class="tabs">
+                    {% for contact in contacts %}
+                    <div id="{{ contact.id }}" class="tab {{ forloop.counter }}" >
+                        {{ contact.city }}
+                    </div>
+                    {% endfor %}
+
+                </div>
+                <div id="ban-address"  >
+                    <p id="add" class="address">
+                         {% comment %}{% endcomment %} {{ con.address_line_1 }}  {% if address_line_2 %} {{ con.address_line_2 }} {% endif %} {{ con.city }}-{{ con.pin_code }}
+                    </p>
+                    <div id="email" class="mail">
+                        {% if con.email %}
+
+<!--                        <svg width="23" height="19" viewBox="0 0 23 19" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.92502 3.5436C3.0904 3.21658 3.43048 2.98965 3.81845 2.98965H19.8184C20.2064 2.98965 20.5465 3.21658 20.7119 3.5436L11.8184 9.769L2.92502 3.5436ZM0.818495 3.97231C0.818333 3.98218 0.818316 3.99205 0.818445 4.0019V15.9897C0.818445 17.6419 2.16616 18.9897 3.81845 18.9897H19.8184C21.4707 18.9897 22.8184 17.6419 22.8184 15.9897V4.00202C22.8186 3.99207 22.8186 3.98212 22.8184 3.97216C22.8089 2.32787 21.4649 0.989655 19.8184 0.989655H3.81845C2.17195 0.989655 0.827886 2.32795 0.818495 3.97231ZM20.8184 5.91031V15.9897C20.8184 16.5374 20.3662 16.9897 19.8184 16.9897H3.81845C3.27073 16.9897 2.81845 16.5374 2.81845 15.9897V5.91031L11.245 11.8089C11.5893 12.0499 12.0476 12.0499 12.3919 11.8089L20.8184 5.91031Z" fill="black"/>-->
+<!--                        </svg>-->
+                        <span>{{ con.email}} </span>
+
+                        {% endif %}
+                        </div>
+                    <div id="phone_no" class="phone">
+                        {% if con.contact_no %}
+<!--                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                            <path d="M21.6244 16.4046V19.4046C21.6256 19.6831 21.5685 19.9588 21.457 20.2139C21.3454 20.4691 21.1817 20.6982 20.9765 20.8865C20.7713 21.0747 20.529 21.2181 20.2652 21.3073C20.0014 21.3965 19.7218 21.4297 19.4444 21.4046C16.3673 21.0702 13.4114 20.0187 10.8144 18.3346C8.39827 16.7993 6.34978 14.7508 4.81445 12.3346C3.12442 9.7258 2.07269 6.75559 1.74444 3.66459C1.71946 3.38806 1.75232 3.10935 1.84095 2.84622C1.92957 2.58308 2.07202 2.34128 2.25921 2.13622C2.44641 1.93115 2.67425 1.7673 2.92824 1.65512C3.18222 1.54293 3.45679 1.48486 3.73445 1.48459H6.73445C7.21975 1.47982 7.69024 1.65167 8.05821 1.96813C8.42618 2.28458 8.66652 2.72404 8.73444 3.20459C8.86107 4.16466 9.09589 5.10732 9.43445 6.01459C9.56899 6.37252 9.59811 6.76151 9.51835 7.13547C9.4386 7.50944 9.25331 7.85271 8.98444 8.12459L7.71445 9.39459C9.138 11.8981 11.2109 13.971 13.7144 15.3946L14.9844 14.1246C15.2563 13.8557 15.5996 13.6704 15.9736 13.5907C16.3475 13.5109 16.7365 13.5401 17.0944 13.6746C18.0017 14.0131 18.9444 14.248 19.9044 14.3746C20.3902 14.4431 20.8338 14.6878 21.151 15.0621C21.4681 15.4364 21.6366 15.9142 21.6244 16.4046Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>-->
+<!--                            </svg>-->
+                       <span>{{ con.contact_no}} </span>
+                        {% endif %}
+                    </div>
+                    <a id="direction" target="_blank" href="https://www.google.com/maps/place/Pravega+Ventures/@12.9095704,77.6089571,13z/data=!4m5!3m4!1s0x0:0x315a43c71d78a4f!8m2!3d12.9144436!4d77.6354359"><button class="primary large"> Get Directions Now</button></a>
+                </div>
+
+            </div>
+        </div>
+        <div class="right">
+                <div id="banMap" class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q={{ con.latitude}},{{ con.longitude }}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/nordvpn-coupon-code/">https://www.embedgooglemap.net</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div>
+<!--            <a id="banMap" target ="_blank" href="https://www.google.com/maps/place/Pravega+Ventures/@12.9095704,77.6089571,13z/data=!4m5!3m4!1s0x0:0x315a43c71d78a4f!8m2!3d12.9144436!4d77.6354359"><img src="/static/assets_new/img/pvban.jpg" alt=""></a>-->
+<!--            <a id="delMap" target ="_blank"  href="https://www.google.com/maps/place/Pravega+Ventures/@28.52394,77.1437561,15z/data=!4m5!3m4!1s0x0:0x287781f65561e6df!8m2!3d28.52394!4d77.1437561" ><img src="/static/assets/img/pvdel.jpg" alt=""></a>-->
+        </div>
+    </section>
+
+
+
+   {% endblock %}
+{% block script %}
+     <script src="/static/assets_new/js/main.js"></script>
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuK5jU1KFzdi2iDwY-aGKltGZ5lzT6jw0&callback=initMap"></script>
+     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+        $( document ).ready(function() {
+    $('.1').addClass("active");
+});
+   $('.tab').click(function(){
+
+       $('.tab').removeClass("active");
+       $(this).addClass("active");
+     $.ajax({
+            method: "GET",
+            url: "/contactus/contact_city/",
+            data: { 'ppid':  $(this).attr("id") },
+            success: function(data1) {
+
+
+            var address=data1[0].fields.address_line_1
+            if(data1[0].fields.address_line_2)
+            {
+               address=address+data1[0].fields.address_line_2
+            }
+            address=address+" "+data1[0].fields.city+" "+data1[0].fields.pin_code;
+             document.getElementById("add").innerHTML=address;
+
+             document.getElementById("email").innerHTML="";
+            if(data1[0].fields.email!=null){
+             email_of_contact='<span>'+data1[0].fields.email+'</span>'
+             document.getElementById("email").innerHTML=email_of_contact;
+             }
+
+
+             document.getElementById("phone_no").innerHTML="";
+            if(data1[0].fields.contact_no!=null){
+            phone_of_contact='<span>'+data1[0].fields.contact_no+'</span>'
+
+
+
+             document.getElementById("phone_no").innerHTML=phone_of_contact;
+            }
+
+
+
+
+<!--             document.getElementById("email").innerHTML=data1[0].fields.email;-->
+<!--             document.getElementById("phone_no").innerHTML=data1[0].fields.contact_no;-->
+
+
+
+
+             $('#gmap_canvas').attr('src','https://maps.google.com/maps?q='+data1[0].fields.latitude+','+data1[0].fields.longitude+'&t=&z=13&ie=UTF8&iwloc=&output=embed')
+             $('#direction').attr('href','https://maps.google.com/maps?q='+data1[0].fields.latitude+','+data1[0].fields.longitude+'&t=&z=13&ie=UTF8&iwloc=&output=embed')
+
+
+
+                }
+            })
+
+
+     });
+
+
+    </script>
+{% endblock %}
+{% block class_footer2 %}active{% endblock %}

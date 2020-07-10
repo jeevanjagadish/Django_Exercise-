@@ -1,0 +1,122 @@
+<div class="modal open">
+            <input id="{{ category }}" class="category" type="hidden" value="{{ portfolio_detail.category }}">
+            <div class="portfolio-nav">
+                {% if index %}
+                 {% if previous_portfolio %}
+                <button id="{{ previous_portfolio.id }}" onclick="scaleleft()" class="left_portfolio_nav next">
+                    <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.21083 7.80216H16.582V5.80216H4.43461L8.39561 1.53647L6.93002 0.175568L1.40861 6.12171L0.82439 6.75087L1.3579 7.42356L6.24223 13.5821L7.80923 12.3393L4.21083 7.80216Z" fill="#1F1F1F"/>
+                    </svg>
+                </button>
+                {% endif %}
+                {% endif %}
+                {% if index %}
+                {% if next_portfolio %}
+                <button id="{{ next_portfolio.id }}" onclick="scaleright()" class="right_portfolio_nav next">
+                    <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1954 7.80216H0.824219V5.80216H12.9716L9.01064 1.53647L10.4762 0.175568L15.9976 6.12171L16.5819 6.75087L16.0483 7.42356L11.164 13.5821L9.59702 12.3393L13.1954 7.80216Z" fill="#1F1F1F"/>
+                    </svg>
+                </button>
+                {% endif %}
+                {% endif %}
+            </div>
+            <div class="cover">
+                <img src="https://pravega-contactimages-ap-south-1.s3.amazonaws.com/media/{{ portfolio_detail.portfolio_detail_page_image }}" alt="">
+            </div>
+            <div class="detail">
+                <button id="closeModal" onclick="closeModal()">
+                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4996 10.4995L1.38875 19.6103L0.681641 18.9032L9.79247 9.79235L1.00008 0.999953L1.70718 0.292847L10.4996 9.08524L19.292 0.292847L19.9991 0.999953L11.2067 9.79235L20.3175 18.9032L19.6104 19.6103L10.4996 10.4995Z" fill="white"/>
+                    </svg>
+                </button>
+                <div class="detail-content">
+                    <h1 class="title">{{ portfolio_detail.company_name }}</h1>
+                    <p class="caption">{{ portfolio_detail.subhead }} </p>
+                    <div class="data-row">
+                        <div class="data-group">
+                            <div class="data-label">Year Invested</div>
+                            <div class="data-value">{{ portfolio_detail.invested_year.year }}</div>
+                        </div>
+                        <div class="data-group">
+                            <div class="data-label">Sectors</div>
+                             {% for sectr in sector %}
+                            <div class="data-value">{{ sectr }}</div>
+                             {% endfor %}
+
+                        </div>
+                    </div>
+                    <div class="data-group">
+                        {% if founders %}
+                            <div class="data-label">Founders</div>
+                        {% for founder in founders %}
+                            <div class="data-value founder">
+                                <a href="{{ founder.founder_linkedin_url }}" target="_blank">
+                                    {{ founder.founder_name }}
+                                </a>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                    {% endif %}
+                    <p class="about">{{ portfolio_detail.description }}</p>
+<!--                    <button class="primary" onclick="window.location.href = '{{ portfolio_detail.company_website_link }}';" target="_blank">View Site</button>-->
+                    <a class="primary" href = '{{ portfolio_detail.company_website_link }}' target="_blank">View Site</a>
+                    <div class="portfolio-news">
+                        {% if news %}
+                        <label for="" class="section-pill">RECENT NEWS</label>
+                        {% endif %}
+                        {% for nws in news %}
+                       <div class="portfolio-news-item">
+                           <div>
+                               <p class="news-comp">{{ nws.publisher }}</p>
+                               <a href="{{ nws.news_link }}" target="_blank">{{ nws.headline }}</a>
+                               <p class="news-date">{{ nws.publish_date|date:" M, Y" }}</p>
+                           </div>
+                       </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+            </div>
+ </div>
+<script>
+$(document).on('click','#closeModal',function(){
+    $('.modal').remove();
+    $('body').css('overflow', 'auto');
+})
+
+    $( document ).ready(function() {
+    $('body').css('overflow', 'hidden');
+
+        $('.next').click(function(){
+
+             $.ajax({
+                    method: "GET",
+                    url: "/portfolios/portfolio_detail/",
+<!--                data: { 'pid':  $(".portfolio-content").attr("id") },-->
+                    data: { 'pid':  $(this).attr("id"),'category':  $(".category").attr("id") },
+                    success: function(data) {
+                    //debugger
+                    $('.modal').remove();
+                    $('body').append(data);
+                }
+            })
+        });
+});
+
+
+
+<!--function scaleright() {-->
+            <!--document.querySelector('.modal').classList.remove('slide-right');-->
+            <!--document.querySelector('.modal').classList.add('slide-left');-->
+            <!--document.querySelector('.modal').classList.add('open');-->
+
+        <!--}-->
+        <!--function scaleleft() {-->
+            <!--document.querySelector('.modal').classList.remove('slide-left');-->
+            <!--document.querySelector('.modal').classList.add('open');-->
+            <!--document.querySelector('.modal').classList.add('slide-right');-->
+
+        <!--}-->
+</script>

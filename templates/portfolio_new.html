@@ -1,0 +1,140 @@
+{% extends 'base_new.html' %}
+{% block class_tab1 %}active{% endblock %}
+ {% block content %}
+
+
+    <div class="temp-portfolio-hero">
+        <div class="container">
+<!--            <label for="" class="page-pill">{{ herosection.title }}</label>-->
+            <h1>{{ herosection.title }}</h1>
+        </div>
+    </div>
+
+    <div class="filter-menu">
+        <div class="container">
+            <span class="filter-label"> Select Categories :</span>
+            <button id="btn" class="allbtn">All</button>
+            {% for category in categories %}
+
+            <button id="{{ category.category }}" class="clck">{{ category.category }}</button>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <!--Portfolio-->
+    <div class="port">
+        <div class="all">
+    <section class="portfolio">
+        <div class="container">
+
+            <div class="portfolio-wrapper">
+                {% for portfolio in present_portfolios %}
+                <div data-id="{{ portfolio.id }}" class="portfolio-item">
+                    <img src="https://pravega-contactimages-ap-south-1.s3.amazonaws.com/media/{{ portfolio.company_logo }}" alt="">
+                    {% if portfolio.company_subhead %}
+                    <div class="portfolio-caption">
+                        <p>{{ portfolio.company_subhead }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+                 {% endfor %}
+
+            </div>
+
+        </div>
+    </section>
+    <div class="past-investments">
+        <div class="container">
+            {% if past_portfolios %}
+                <h1>Our Past Investments</h1>
+            {% endif %}
+            <div class="past-investment-wrapper">
+                {% for portfolio in past_portfolios %}
+                <a href="{{ portfolio.company_website_link }}" target="_blank" class="past-investment-item">
+                    <img src="https://pravega-contactimages-ap-south-1.s3.amazonaws.com/media/{{ portfolio.company_logo }}" alt="">
+                </a>
+                 {% endfor %}
+
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+
+  {% endblock %}
+
+{% block script %}
+    <script src="/static/assets_new/js/main.js"></script>
+
+
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+ $(document).ready(function(){
+         $('#btn').addClass("active");
+        $('.portfolio-item').click(function(){
+
+             $.ajax({
+                    method: "GET",
+                    url: "/portfolios/portfolio_detail/",
+<!--                data: { 'pid':  $(".portfolio-content").attr("id") },-->
+                    data: { 'pid':  $(this).attr("data-id"),'category':  $(".active").attr("id")},
+                    success: function(data) {
+                    //debugger
+                    $('body').append(data);
+                }
+            })
+        });
+
+
+
+function closeModal()
+{
+    $('.modal').remove();
+<!--    document.querySelector('body').style.overflow="hidden";-->
+}
+
+
+
+$('.allbtn').click(function(){
+     $('.all').show();
+     $('.clck').removeClass("active");
+     $('#btn').addClass("active");
+<!--     $('.specific').remove();-->
+
+        });
+
+
+$('.clck').click(function(){
+            $('#btn').removeClass("active");
+            $('.clck').removeClass("active");
+            $(this).addClass("active");
+     $.ajax({
+            method: "GET",
+            url: "/portfolios/portfolios/",
+            data: { 'ppid':  $(this).attr("id") },
+            success: function(data1) {
+            $('.all').hide();
+             $('.specific').remove();
+            $('.port').append(data1);
+
+                }
+            })
+     });
+});
+
+
+
+
+
+
+
+</script>
+{% endblock%}
+{% block class_footer1 %}active{% endblock %}

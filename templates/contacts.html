@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- font awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <!-- fonts -->
+        <link rel="stylesheet" href="https://use.typekit.net/qwy7dph.css">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700,900&display=swap" rel="stylesheet">
+        <!-- css -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/contacts_css/contacts.css">
+        <title>Pravega Ventures</title>
+    </head>
+<body onclick="blurInput(event)">
+    <header>
+        <div class="head-wrap clearfix">
+            <a href="/Home/"><p>Pravega <span>Ventures</span></p></a>
+            <div class="profile-div" onclick="nav_drop()">
+                <!-- <img src="pro-pic.jpg"> -->
+                {% if customuser.img_file %}
+                <img src="{{ customuser.img_file.url }}">
+                {%  else %}
+                 <div class="initials">
+                     <p>{{request.user.first_name|slice:":1"}}</p>
+                 </div>
+                {% endif %}
+                <div class="nav-drop" id="nav_drop">
+
+                    <p class="name">{{request.user.first_name}} {{request.user.last_name}}</p>
+                    <p class="designation">UI/UX Developer</p>
+                    <a href="/Home/">
+                    <p class="nav-list">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5 12H2L12 3L22 12H19V20H13V14H11V20H5V12ZM17 10.19L12 5.69L7 10.19V18H9V12H15V18H17V10.19Z" fill="black"/>
+                            </svg>
+                        Home
+                    </p></a>
+                    <a href="/dashboard/">
+                    <p class="nav-list  active ">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 6L18.29 8.29L13.41 13.17L9.41 9.17L2 16.59L3.41 18L9.41 12L13.41 16L19.71 9.71L22 12V6H16Z" fill="black"/>
+                            </svg>
+                        Current Feeds
+                    </p></a>
+                    <a href="/investordatabase/">
+                    <p class="nav-list">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7998 10.9C9.52982 10.31 8.79982 9.7 8.79982 8.75C8.79982 7.66 9.80982 6.9 11.4998 6.9C13.2798 6.9 13.9398 7.75 13.9998 9H16.2098C16.1398 7.28 15.0898 5.7 12.9998 5.19V3H9.99982V5.16C8.05982 5.58 6.49982 6.84 6.49982 8.77C6.49982 11.08 8.40982 12.23 11.1998 12.9C13.6998 13.5 14.1998 14.38 14.1998 15.31C14.1998 16 13.7098 17.1 11.4998 17.1C9.43982 17.1 8.62982 16.18 8.51982 15H6.31982C6.43982 17.19 8.07982 18.42 9.99982 18.83V21H12.9998V18.85C14.9498 18.48 16.4998 17.35 16.4998 15.3C16.4998 12.46 14.0698 11.49 11.7998 10.9Z" fill="black"/>
+                            </svg>
+                            Investors Database
+                    </p>
+                    </a>
+                    <a href="">
+                    <p class="nav-list">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 6H17V4C17 2.89 16.11 2 15 2H9C7.89 2 7 2.89 7 4V6H4C2.89 6 2 6.89 2 8V19C2 20.11 2.89 21 4 21H20C21.11 21 22 20.11 22 19V8C22 6.89 21.11 6 20 6ZM9 4H15V6H9V4ZM20 19H4V17H20V19ZM20 14H4V8H7V10H9V8H15V10H17V8H20V14Z" fill="black"/>
+                            </svg>
+
+                            Professional Service
+                    </p></a>
+                    <a href="/logout/">
+                    <p class="nav-list">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.09 15.59L11.5 17L16.5 12L11.5 7L10.09 8.41L12.67 11H3V13H12.67L10.09 15.59ZM19 3H5C3.89 3 3 3.9 3 5V9H5V5H19V19H5V15H3V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3Z" fill="black"/>
+                            </svg>
+
+                        Log Out
+                    </p></a>
+
+
+                </div>
+            </div>
+
+
+            </div>
+        </div>
+    </header>
+    <!-- <button class="test-btn">click</button> -->
+    <main>
+        <article>
+            <section class="autocomplete-me">
+                <div class="section-head">
+                    <div class="row">
+                        <div class="col-3">
+                            <p class="all-contacts ">All Contacts</p>
+                        </div>
+                        <div class="col-5">
+                            <div class="search-wrap">
+                                {% if searchKey %}
+                                <input type="search" name="searchContact" id="searchContact" value="{{ searchKey }}" placeholder="Search" onfocus="focusFunction()"  autocomplete="off">
+                                {% else %}
+                                <input type="search" name="searchContact" id="searchContact" placeholder="Search" onfocus="focusFunction()"   autocomplete="off">
+                                {% endif %}
+                                <div class="search-suggestions" id="search_suggestions">
+                                    <div class="suggestions">
+<!--                                        <p>assdfgh</p>-->
+<!--                                        <p>assdfgh</p>-->
+                                    </div>
+                                    <div class="search-tags">
+                                        <p>Tags : {% for tag in tags %}
+                                            <a href="/dashboard/get_contact/{{ tag.id }}/"><span>#{{ tag.tag_name }}</span></a>
+                                            {% endfor %}
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--                            {% if searchKey == None %}-->
+<!--                            <input type="search" name="searchContact" id="searchContact" placeholder="Search">-->
+
+
+
+<!--                            {% else %}-->
+<!--                            <input type="search" placeholder="Search" name="searchContact" id="searchContact" value="{{ searchKey }}">-->
+<!--                            {% endif %}-->
+
+
+                        </div>
+                        <div class="col-2">
+                            <button class="btn-apply-filter" id="btn_filter">Apply Filter
+                                <svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 8L5 13L10 8H0Z" fill="black"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5L5 0L0 5H10Z" fill="black"/>
+                                    </svg>
+                                    
+                            </button>
+          
+                        </div>
+                        <div class="col-2">
+                            <button class="btn-upload" id="btn_upload">Upload Contact</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="contacts-wrap">
+                    <div class="row">
+                         {% for user in users %}
+                        <div class="col-4 pr-10 pl-10 mb-26">
+                            <div class="contact-div">
+                                <!-- onclick="openn()" -->
+                                <button id="{{ user.id }}" class="btn_sendMail email">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.6451 4.12903H4.12897C2.99349 4.12903 2.07478 5.05806 2.07478 6.19354L2.06445 18.5806C2.06445 19.7161 2.99349 20.6452 4.12897 20.6452H20.6451C21.7806 20.6452 22.7096 19.7161 22.7096 18.5806V6.19354C22.7096 5.05806 21.7806 4.12903 20.6451 4.12903ZM20.6451 8.25806L12.387 13.4194L4.12897 8.25806V6.19354L12.387 11.3548L20.6451 6.19354V8.25806Z" fill="#1F1F1F"/>
+                                    </svg>  
+                                </button> 
+                                <div class="detail-wrap" id="{{ user.id }}">
+
+                                    <div class="top-div clearfix">
+                                        <div class="img-div">
+                                            {% if user.img_file %}
+                                            <img src="https://pravega-contactimages-ap-south-1.s3.amazonaws.com/media/{{ user.img_file }}">
+                                            {% else %}
+                                            <div class="initials">
+                                                <p>{{ user.name|slice:":1" }}</p>
+                                            </div>
+                                            {%  endif %}
+                                        </div>
+                                        <div class="member-detail">
+                                            <p class="member-name ma">{{ user.name}}</p>
+                                            <p class="des-loc ma">{{ user.title }}</p>
+                                            <p class="des-loc ma">{{ user.location }}</p>
+                                        </div>
+                                    <!-- <button class="btn_sendMail">
+                                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.6451 4.12903H4.12897C2.99349 4.12903 2.07478 5.05806 2.07478 6.19354L2.06445 18.5806C2.06445 19.7161 2.99349 20.6452 4.12897 20.6452H20.6451C21.7806 20.6452 22.7096 19.7161 22.7096 18.5806V6.19354C22.7096 5.05806 21.7806 4.12903 20.6451 4.12903ZM20.6451 8.25806L12.387 13.4194L4.12897 8.25806V6.19354L12.387 11.3548L20.6451 6.19354V8.25806Z" fill="#1F1F1F"/>
+                                        </svg>  
+                                    </button>  -->
+                                    </div>{% if user.present_company_name %}
+                                    <p class="detail-heading ma">Company : <span>{{ user.present_company_name }} </span></p>
+                                    {% endif %}
+
+                                    {% if user.tags.all %}
+                                    <p class="detail-heading ma">Tags :
+                                        {% for tag in user.tags.all %}
+                                        <span class="tags">#{{ tag.tag_name }}</span>
+<!--                                        <span class="tags">#UI/UX</span>-->
+                                         {% endfor %}
+                                    </p>
+                                    {% endif %}
+                                    {% if user.connection.all %}
+                                    <p class="detail-heading ma">Pravega Connections :
+                                         {% for connection in user.connection.all %}
+                                        <span> {{ connection.first_name }} {{ connection.last_name }}</span>{% if not forloop.last %}, {% endif %}
+                                         {% endfor %}
+                                    </p>
+                                    {% endif %}
+                                    {% if user.Note %}
+                                    <p class="detail-heading ma">Note : <span> {{ user.Note|slice:":15" }}</span></p>
+                                    {% endif %}
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </section>
+            <!-- -------filter modal---------- -->
+            <section class="modal1 " id="modal_filter">
+                <div class="modal-content clearfix">
+                    <div class="modal1-header clearfix">
+                        <p>Apply Filters</p>
+                    </div>
+                    <div class="modal1-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="container1">Business Magnets
+                                        <input type="checkbox" >
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="col-6">
+                                    <label class="container1">Business Magnets
+                                        <input type="checkbox" >
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div><div class="col-6">
+                                    <label class="container1">Business Magnets
+                                        <input type="checkbox" >
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div><div class="col-6">
+                                    <label class="container1">Business Magnets
+                                        <input type="checkbox" >
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div><div class="col-6">
+                                    <label class="container1">Business Magnets
+                                        <input type="checkbox" >
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div><div class="col-6">
+                                    <label class="container1">Business Magnets
+                                        <input type="checkbox" >
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal1-footer">
+                        <button class="btn-cancel modal-close" id="filter_close">Cancel</button>
+                        <button class="btn-send">Apply</button>
+                    </div>
+               </div>
+            </section>
+            <!-- ---------------upload modal------------ -->
+            <section class="modal1 " id="modal_upload">
+                <div class="modal-content clearfix">
+                    <form id="file" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                    <div class="modal1-header clearfix">
+
+                        <p>Upload Contacts</p>
+                        <button  type="reset" class="close modal-close upload-close">&times;</button>
+
+
+                    </div>
+                        <div class="upload-wrap">
+                            <input type="file" placeholder="Upload Excel Sheet" id="myfile" name="myfile">
+                            <label for="myfile">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.35 10.04C18.67 6.59 15.64 4 12 4C9.11 4 6.6 5.64 5.35 8.04C2.34 8.36 0 10.91 0 14C0 17.31 2.69 20 6 20H19C21.76 20 24 17.76 24 15C24 12.36 21.95 10.22 19.35 10.04ZM14 13V17H10V13H7L12 8L17 13H14Z" fill="#1F1F1F"/>
+</svg>
+                                    Upload Excel Sheet
+
+                            </label>
+                        </div>
+                    
+                    <div class="modal1-footer">
+                        <button type="reset" class="btn-cancel modal-close upload-close">Cancel</button>
+                        <button type="submit" class="btn-send" id="upload">Send</button>
+                    </div>
+                    </form>
+               </div>
+            </section>
+            <!-- ---------------send mail--------------- -->
+            <section class="modal1 " id="modal_sendMail">
+                <div class="modal-content ">
+                    <div class="modal1-header clearfix">
+                        <p>Send Mail</p>
+                        <button id="close" class="close modal-close_sendMail">&times;</button>
+                    </div>
+                    <p class="ta-heading">Reason to connect</p>
+                    <textarea id="reason-text" class="reason-text" placeholder="You do you connect us.... "></textarea>
+                    <p class="ta-heading">Send us a note</p>
+                    <textarea id="send-text" class="send-text" placeholder="Tell us about... "></textarea>
+                    <div class="modal1-footer">
+                        <button class="btn-cancel modal-close_sendMail">Cancel</button>
+                        <button id="" class="btn-send mail">Send</button>
+                    </div>
+               </div>
+            </section>
+            <!-- -------------contact detail.......... -->
+            <section class="modal-detail" id="modal_detail">
+                <div class="modal-content clearfix">
+                    <div class="modal1-header clearfix">
+                        <p>MORE INFORMATION</p>
+                        <button id="close"class="close modal-close detail-close">&times;</button>
+                    </div>
+                    <div class="modal1-body">
+                        <div class="row">
+                            <div class="col-3" >
+                                <div class="img-div profile">
+<!--                                    <img id="img" src="Pushpak Kedia.jpg">-->
+<!--                                    <div class="initials">-->
+<!--                                        <p>JB</p>-->
+<!--                                    </div>-->
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="person-detail">
+                                            <p id="name" class="name"></p>
+                                            <p id="title"></p>
+                                            <p id="current_company"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="person-detail1">
+                                            <p>
+                                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3333 3.66663H3.66668C2.65834 3.66663 1.84251 4.49163 1.84251 5.49996L1.83334 16.5C1.83334 17.5083 2.65834 18.3333 3.66668 18.3333H18.3333C19.3417 18.3333 20.1667 17.5083 20.1667 16.5V5.49996C20.1667 4.49163 19.3417 3.66663 18.3333 3.66663ZM18.3333 7.33329L11 11.9166L3.66668 7.33329V5.49996L11 10.0833L18.3333 5.49996V7.33329Z" fill="#1F1F1F"/>
+                                                </svg>
+
+                                                <span id="email"></span>
+                                            </p>
+                                            <p>
+                                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1.83337C7.4525 1.83337 4.58333 4.70254 4.58333 8.25004C4.58333 13.0625 11 20.1667 11 20.1667C11 20.1667 17.4167 13.0625 17.4167 8.25004C17.4167 4.70254 14.5475 1.83337 11 1.83337ZM11 10.5417C9.735 10.5417 8.70833 9.51504 8.70833 8.25004C8.70833 6.98504 9.735 5.95837 11 5.95837C12.265 5.95837 13.2917 6.98504 13.2917 8.25004C13.2917 9.51504 12.265 10.5417 11 10.5417Z" fill="black"/>
+                                                    </svg>
+                                                  <span id="location"></span>
+                                            </p>
+                                            <p id="phone">
+                                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.06833 9.89083C7.38833 12.485 9.515 14.6025 12.1092 15.9317L14.1258 13.915C14.3733 13.6675 14.74 13.585 15.0608 13.695C16.0875 14.0342 17.1967 14.2175 18.3333 14.2175C18.8375 14.2175 19.25 14.63 19.25 15.1342V18.3333C19.25 18.8375 18.8375 19.25 18.3333 19.25C9.72583 19.25 2.75 12.2742 2.75 3.66667C2.75 3.1625 3.1625 2.75 3.66667 2.75H6.875C7.37917 2.75 7.79167 3.1625 7.79167 3.66667C7.79167 4.8125 7.975 5.9125 8.31417 6.93917C8.415 7.26 8.34167 7.6175 8.085 7.87417L6.06833 9.89083Z" fill="#1F1F1F"/>
+                                                    </svg>
+                                                    <span id="phone_no"></span>
+                                            </p>
+                                            <p>
+                                            <a id="linkedinprofile" target="_blank">
+                                                <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 11C0 4.9258 5.3736 0 12 0C18.6264 0 24 4.9258 24 11C24 17.0742 18.6264 22 12 22C5.3736 22 0 17.0742 0 11ZM5.59039 16.6289H8.51294V8.56908H5.59039V16.6289ZM7.05176 7.46851H7.03271C6.052 7.46851 5.41772 6.84966 5.41772 6.07622C5.41772 5.28532 6.07141 4.68359 7.07117 4.68359C8.07092 4.68359 8.68616 5.28532 8.7052 6.07622C8.7052 6.84966 8.07092 7.46851 7.05176 7.46851ZM16.1288 16.6289H19.051V12.0074C19.051 9.53185 17.6093 8.37991 15.6865 8.37991C14.1359 8.37991 13.441 9.16107 13.0527 9.71027V8.56908H10.1303C10.1686 9.32523 10.1303 16.6289 10.1303 16.6289H13.0527V12.1279C13.0527 11.8871 13.0715 11.6464 13.1488 11.4742C13.3601 10.993 13.8409 10.4944 14.6483 10.4944C15.7057 10.4944 16.1288 11.2335 16.1288 12.3171V16.6289Z" fill="black"/>
+                                                    </svg>
+                                                <span id="linkedin"></span>
+                                            </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="upper-detail-wrap">
+                                    <div class="row">
+                                        <div id="connections" class="col-6">
+
+                                        </div>
+                                        <div id="tags" class="col-6">
+<!--                                            <p  class="heading">Tags:</p>-->
+<!--                                            <span class="tags">#Design</span>-->
+<!--                                            <span class="tags">#UI/UX</span>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="upper-detail-wrap">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="pravega-note-wrap">
+                                                <p class="pravega-note-head praveganote">Pravega Notes:</p>
+                                                <p id="pravega-notes" class="pravega-notes"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <p class="other-info">Other Informations</p>
+                        <div class="other-info-wrap">
+                            <div class="detail-section-wrap">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="heading">Past company details : </p>
+                                    </div>
+                                    <div id="company_detail" class="col-8">
+<!--                                        <div class="detail-right-wrap">-->
+<!--                                            <p class="detail">Zenitech company</p>-->
+<!--                                            <p class="sub-detail">UI/UX Designer</p>-->
+<!--                                            <p class="sub-detail">Dec 2019 - Feb 2020</p>-->
+<!--                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-section-wrap">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="heading">Educational Qualification : </p>
+                                    </div>
+                                    <div id="education_detail" class="col-8">
+<!--                                        <div class="detail-right-wrap">-->
+<!--                                            <p class="detail">Zenitech company</p>-->
+<!--                                            <p class="sub-detail">UI/UX Designer</p>-->
+<!--                                            <p class="sub-detail">Dec 2019 - Feb 2020</p>-->
+<!--                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="send-mail-div">
+                            <button id=" " class="btn-sendmail btn_sendMail email-detail email">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.8194 3.96387H3.96387C2.8738 3.96387 1.99184 4.85574 1.99184 5.9458L1.98193 17.8374C1.98193 18.9275 2.8738 19.8194 3.96387 19.8194H19.8194C20.9094 19.8194 21.8013 18.9275 21.8013 17.8374V5.9458C21.8013 4.85574 20.9094 3.96387 19.8194 3.96387ZM19.8194 7.92774L11.8916 12.8826L3.96387 7.92774V5.9458L11.8916 10.9006L19.8194 5.9458V7.92774Z" fill="#1F1F1F"/>
+                                    </svg>
+
+                                Send mail
+                            </button>
+                        </div>
+
+
+                    </div>
+               </div>
+            </section>
+            <!-- ---------------mail sucessful--------------- -->
+            <section class="modal1 " id="modal_sendMailSucess">
+                <div class="modal-content ">
+                    <div class="modal1-header clearfix">
+                        <button class="close sucess-close">&times;</button>
+                    </div>
+                    <div class="content">
+                        <svg width="89" height="69" viewBox="0 0 89 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M56.7682 52.9576C56.7682 44.0215 63.9674 36.7785 72.8478 36.7785C74.6498 36.7785 76.3825 37.0768 78 37.6263C78 23.5662 78 3.54507 78 2.78253C78 1.252 76.755 0 75.2339 0H2.76609C1.2443 0 0 1.252 0 2.78253V51.2175C0 52.748 1.2443 54 2.76609 54H56.8022C56.7804 53.6553 56.7682 53.3078 56.7682 52.9576Z" fill="#FFD25D"/>
+                            <path d="M56.6016 52.9576C56.6016 46.8109 59.9975 41.4649 65 38.7261L53.0109 27L47.154 32.7275C42.5466 37.2352 35.2245 37.2352 30.6164 32.7275L24.7602 27L0 51.2175C0 52.748 1.24065 54 2.75797 54H56.6354C56.6138 53.6553 56.6016 53.3078 56.6016 52.9576Z" fill="#EDBE56"/>
+                            <path d="M75.2339 0H2.76609C1.2443 0 0 1.23593 0 2.74681L30.7065 32.6632C35.3282 37.1123 42.6718 37.1123 47.2928 32.6632L78 2.74681C78 1.23593 76.755 0 75.2339 0V0Z" fill="#FFDF8B"/>
+                            <path d="M89 52.5003C89 61.6128 81.613 69 72.5 69C63.3877 69 56 61.6128 56 52.5003C56 43.3872 63.3877 36 72.5 36C81.613 36 89 43.3872 89 52.5003Z" fill="#1DD1A1"/>
+                            <path d="M78.7515 47.3786L71.1157 54.8771L67.2485 51.0795C66.7338 50.5747 65.9002 50.5747 65.3855 51.0795C64.8715 51.5843 64.8715 52.4036 65.3855 52.9083L70.1842 57.6208C70.4412 57.8731 70.7788 58 71.1157 58C71.4526 58 71.7895 57.8731 72.0472 57.6208L80.6145 49.2075C81.1285 48.7027 81.1285 47.8834 80.6145 47.3786C80.0998 46.8738 79.2662 46.8738 78.7515 47.3786Z" fill="#E4EAF8"/>
+                        </svg>
+                        <p>Your message has been sucessfully sent !</p>
+
+                    </div>
+                    <div class="modal1-footer">
+                        <button class="btn-send sucess-close">OK</button>
+                    </div>
+                </div>
+            </section>
+            <!-- ---------------Upload sucessful--------------- -->
+             <section class="modal1 " id="modal_uploadSucess">
+                <div class="modal-content ">
+                    <div class="modal1-header clearfix">
+                        <p>Contact Uploaded</p>
+                        <button class="close modal-close-upload">&times;</button>
+                    </div>
+                    <div class="content">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#21B13C"/>
+                            </svg>
+                        <p>Contacts.LinkedIn_Excel_Sheet</p>
+
+                    </div>
+                    <div class="modal1-footer">
+                        <button class="btn-send modal-close-upload">Done</button>
+                    </div>
+                </div>
+            </section>
+
+
+        </article>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../static/assets/js/scripts.js"></script>
+    <script>
+
+
+
+        $(document).ready(function(){
+            $('#btn_filter').click(function(){
+                $("#modal_filter").show();
+                $('body').css('overflow', 'hidden');
+            });
+
+            $('#filter_close').click(function(){
+                $("#modal_filter").hide();
+                $('body').css('overflow', 'auto');
+            });
+
+
+
+            $('#btn_upload').click(function(){
+                $("#modal_upload").show();
+                $('body').css('overflow', 'hidden');
+            });
+            $('.upload-close').click(function(){
+                $("#modal_upload").hide();
+                $('body').css('overflow', 'auto');
+            });
+
+            $('.btn_sendMail').click(function(){
+                $("#modal_sendMail").show();
+                $('body').css('overflow', 'hidden');
+            });
+            $('.modal-close_sendMail').click(function(){
+                 $('#send-text').val('');
+                 $('#reason-text').val('');
+                $("#modal_sendMail").hide();
+                $('body').css('overflow', 'auto');
+
+            });
+
+
+            $('.sucess-close').click(function(){
+                $("#modal_sendMailSucess").hide();
+                $('body').css('overflow', 'auto');
+            });
+
+<!--            $('.test-btn').click(function(){-->
+<!--                $("#modal_detail").show();-->
+<!--                $('body').css('overflow', 'hidden');-->
+<!--            });-->
+<!--            $('.modal-close_sendMail').click(function(){-->
+<!--                $("#modal_detail").hide();-->
+<!--                $('body').css('overflow', 'auto');-->
+<!--            });-->
+
+
+
+             $('.detail-wrap').click(function(){
+
+                    $.ajax({
+                method: "GET",
+                url: "/dashboard/detail_page/",
+                data: { 'user_id':  $(this).attr("id") },
+                success: function(data1) {
+<!--                        console.log(data1.company[0].company.company_name);-->
+<!--                        console.log(data1.connection[0].user_profile);-->
+                         $('#name').text(data1.name);
+                         $('.email-detail').attr('id',data1.id);
+                         $('#title').text(data1.title);
+                         $('#current_company').text(data1.present_company_name);
+                         $('#location').text(data1.location);
+                          $('#phone').text(' ');
+                          if(data1.phone_no){
+                          $('#phone').append('<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">'+
+                                                   '<path fill-rule="evenodd" clip-rule="evenodd" d="M6.06833 9.89083C7.38833 12.485 9.515 14.6025 12.1092 15.9317L14.1258 13.915C14.3733 13.6675 14.74 13.585 15.0608 13.695C16.0875 14.0342 17.1967 14.2175 18.3333 14.2175C18.8375 14.2175 19.25 14.63 19.25 15.1342V18.3333C19.25 18.8375 18.8375 19.25 18.3333 19.25C9.72583 19.25 2.75 12.2742 2.75 3.66667C2.75 3.1625 3.1625 2.75 3.66667 2.75H6.875C7.37917 2.75 7.79167 3.1625 7.79167 3.66667C7.79167 4.8125 7.975 5.9125 8.31417 6.93917C8.415 7.26 8.34167 7.6175 8.085 7.87417L6.06833 9.89083Z" fill="#1F1F1F"/>'+
+                                                    '</svg>'+
+                                                    '<span id="phone_no">'+data1.phone_no+'</span>');
+                                              }
+                          $('#email').text(data1.email);
+                          $('.profile').text('');
+                         if(data1.img_file){
+<!--                        $('.profile').append('<img id="img" src='+data1.img_file+'>');-->
+                            $('.profile').append('<div class="img" style="background-image:url('+data1.img_file+')">');
+                         }
+                        else
+                        {
+                         $('.profile').append('<div class="initials"><p>'+data1.name.charAt(0)+'</p></div>');
+                        }
+                         $('#linkedinprofile').attr('href',data1.linkedin_url);
+                         $('#linkedin').text(data1.name+"'s linkedin Profile");
+                         if(data1.Note){
+                         $('#pravega-notes').text(data1.Note);
+                         }
+                         else
+                         {
+                            $('.praveganote').text(' ');
+                         }
+                          $('#tags').text('');
+                          if(data1.tags.length){
+                          $('#tags').append('<p class="heading">Tags:</p>')
+                         for(var i=0;i<data1.tags.length;i++)
+                            {
+                                $('#tags').append('<span class="tags">#'+data1.tags[i]+'<span>');
+                            }
+                            }
+                          document.getElementById('education_detail').innerHTML=" ";
+                         for(var i=0;i<data1.institute.length;i++)
+                            {
+                              $('#education_detail').append('<div class="detail-right-wrap">'+
+                                            '<p class="detail">'+data1.institute[i].institute.institute_name+'</p>'+
+                                           ' <p class="sub-detail">'+data1.institute[i].degree+'</p>'+
+                                            '<p class="sub-detail">'+data1.institute[i].institute.location+'</div>')
+
+                            }
+
+
+
+                            document.getElementById('company_detail').innerHTML=" ";
+                            for(var i=0;i<data1.company.length;i++)
+                            {
+                              $('#company_detail').append('<div class="detail-right-wrap">'+
+                                            '<p class="detail">'+data1.company[i].company.company_name+'</p>'+
+                                            '<p class="sub-detail">'+data1.company[i].title+'</p>'+
+                                            '<p class="sub-detail">'+data1.company[i].year+'</p> </div>')
+
+                             }
+
+                             document.getElementById('connections').innerHTML=" ";
+                             if(data1.connection.length){
+                             $('#connections').append(' <p  class="heading">Pravega Connections:</p>');
+                            for(var i=0;i<data1.connection.length;i++)
+                            {
+                                if(data1.connection[i].user_profile.img_file)
+                                            {
+                                                $('#connections').append(' <div class="con-img"><img src="'+data1.connection[i].user_profile.img_file+'"></div>');
+                                            }
+                                            else
+                                            {
+                                             $('#connections').append(' <div class="con-img"><p>'+data1.connection[i].first_name.charAt(0)+'</p></div>');
+                                             }
+
+
+                            }
+                            }
+                                         }
+                       })
+
+            });
+
+
+
+
+
+            $('.detail-wrap').click(function(){
+                $("#modal_detail").show();
+                $('body').css('overflow', 'hidden');
+            });
+            $('.detail-close').click(function(){
+                $("#modal_detail").hide();
+                $('body').css('overflow', 'auto');
+            });
+
+
+
+            $('.email').click(function(){
+                 id= $(this).attr("id");
+                $('.mail').attr('id',id);
+            });
+
+            $('.mail').click(function(){
+
+                $.ajax({
+                method: "GET",
+                url: "/dashboard/email/",
+                data: { 'user_id':  $('.mail').attr("id"),'head':  $('#reason-text').val(),'body': $('#send-text').val() },
+                success: function(data1) {
+                        console.log("added");
+                        $("#modal_sendMail").hide();
+                        $('#send-text').val('');
+                         $('#reason-text').val('');
+                         $('#modal_sendMailSucess').show();
+
+                                         }
+                       })
+             });
+        });
+
+        function search() {
+            window.location.href = document.location.origin+'/dashboard?search='+$('[name=searchContact]').val();
+        }
+
+        $('#searchBtn').on('click',function(){
+             search();
+        });
+
+        $('#searchContact').keyup(function (e) {
+             var key = e.which;
+             if(key == 13)  // the enter key code
+              {
+                search();
+              }
+              var tval = $('#searchContact').val();
+              tlength = tval.length;
+              if(tlength<3)
+              {
+                $('.ac-result').remove();
+                $('.suggest').remove();
+              }
+              if(tlength>=3)
+              {
+                $('.ac-result').remove();
+                $('.suggest').remove();
+              }
+
+        });
+
+    $('.modal-close-upload').click(function(){
+                $("#modal_uploadSucess").hide();
+                $('body').css('overflow', 'auto');
+            });
+
+
+
+
+
+
+
+
+
+    var Autocomplete = function(options) {
+      this.form_selector = options.form_selector
+      this.url = options.url || '/dashboard/autocomplete/'
+      this.delay = parseInt(options.delay || 300)
+      this.minimum_length = parseInt(options.minimum_length || 3)
+      this.form_elem = null
+      this.query_box = null
+    }
+
+    Autocomplete.prototype.setup = function() {
+      var self = this
+
+      this.form_elem = $(this.form_selector)
+      this.query_box = this.form_elem.find('input[name=searchContact]')
+
+      // Watch the input box.
+      this.query_box.on('keyup', function() {
+        var query = self.query_box.val()
+
+        if(query.length < self.minimum_length) {
+          return false
+        }
+
+        self.fetch(query)
+      })
+
+      // On selecting a result, populate the search field.
+      this.form_elem.on('click', '.ac-result', function(ev) {
+        self.query_box.val($(this).text())
+        $('.ac-results').remove()
+        return false
+      })
+    }
+
+    Autocomplete.prototype.fetch = function(query) {
+      var self = this
+
+      $.ajax({
+        url: this.url
+      , data: {
+          'q': query
+        }
+      , success: function(data) {
+           $('.suggestions').empty();
+           for(i=0;i<data.results.length;i++)
+           {
+                $('.suggestions').append('<p class="suggest" onclick="myfun(this)">'+data.results[i]+'</p>');
+            }
+          self.show_results(data)
+        }
+      })
+    }
+    function myfun(elem)
+    {
+        var a=elem.textContent;
+        $('input[type="search"]').val(a);
+        search();
+    }
+    Autocomplete.prototype.show_results = function(data) {
+      // Remove any existing results.
+      $('.ac-results').remove()
+
+      var results = data.results || []
+      var results_wrapper = $('<div class="ac-results"></div>')
+      var base_elem = $('<div class="result-wrapper"><a href="#" class="ac-result"></a></div>')
+
+      if(results.length > 0) {
+        for(var res_offset in results) {
+          var elem = base_elem.clone()
+          // Don't use .html(...) here, as you open yourself to XSS.
+          // Really, you should use some form of templating.
+         elem.find('.ac-result').text(results[res_offset])
+<!--          results_wrapper.append(elem)-->
+        }
+      }
+      else {
+        var elem = base_elem.clone()
+        elem.text("No results found.")
+<!--        results_wrapper.append(elem)-->
+      }
+
+      this.query_box.after(results_wrapper)
+    }
+
+    $(document).ready(function() {
+      window.autocomplete = new Autocomplete({
+        form_selector: '.autocomplete-me'
+      })
+      window.autocomplete.setup()
+    })
+
+
+function focusFunction(){
+            document.getElementById('search_suggestions').style.display="block";
+        }
+
+
+        function blurFunction(){
+            if ($(event.target).attr("id") == "search_suggestions") {
+                console.log("inside if");
+            }else{
+            console.log("inside else");
+             document.getElementById('search_suggestions').style.display="none";
+             }
+        }
+        document.getElementById("nav_drop").style.display = "none";
+        function nav_drop() {
+            var nav = document.getElementById("nav_drop");
+            console.log(nav.style.display);
+            if (nav.style.display === "none") {
+                console.log("if none");
+                nav.style.display = "block";
+            } else {
+                nav.style.display = "none";
+                console.log("else");
+            }
+            }
+
+
+
+            function blurInput(event){
+            var tarId= event.target.id;
+            console.log(tarId);
+            if (tarId == "search_suggestions" || tarId == "searchContact" )
+            {}
+            else{
+                document.getElementById('search_suggestions').style.display="none";
+
+            }
+        }
+
+        $("[type=file]").on("change", function(){
+          // Name of file and placeholder
+          var file = this.files[0].name;
+          var dflt = $(this).attr("placeholder");
+          if($(this).val()!=""){
+            $(this).next().text(file);
+          } else {
+            $(this).next().text(dflt);
+          }
+        });
+    </script>
+</body>
+</html>

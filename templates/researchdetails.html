@@ -1,0 +1,285 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- font awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <!-- fonts -->
+        <link rel="stylesheet" href="https://use.typekit.net/qwy7dph.css">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700,900&display=swap" rel="stylesheet">
+        <!-- css -->
+        <link rel="stylesheet" href="/static/research_css/researchdetails.css">
+        <title>Pravega Ventures</title>
+    </head>
+<body>
+    <header>
+        <div class="head-wrap clearfix">
+            <p>Pravega <span>Ventures</span></p>
+            <div class="profile-div" onclick="nav_drop()">
+                <!-- <img src="pro-pic.jpg"> -->
+                <img src="/static/contacts_css/Pushpak Kedia.jpg">
+                <div class="nav-drop" id="nav_drop">
+
+                    <p class="name">{{request.user.first_name}} {{request.user.last_name}}</p>
+                    <p class="designation">UI/UX Developer</p>
+                    <a href="/logout/">
+                    <p class="nav-list">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.09 15.59L11.5 17L16.5 12L11.5 7L10.09 8.41L12.67 11H3V13H12.67L10.09 15.59ZM19 3H5C3.89 3 3 3.9 3 5V9H5V5H19V19H5V15H3V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3Z" fill="black"/>
+                            </svg>
+
+                        Log Out
+
+                    </p></a>
+
+
+                </div>
+            </div>
+
+
+            </div>
+        </div>
+    </header>
+    <main>
+        <article>
+            <section class="content-section"> 
+                <div class="content-wrap">
+                    <a href="/researchnote/" class="back">
+                        <i class="fas fa-arrow-left"></i>
+                        Back</a>
+                    <div class="head-wrap clearfix">
+                        <p>{{note.title}}</p>
+                            <a href="https://pravega-contactimages-ap-south-1.s3.amazonaws.com/media/{{ note.file_url }}" target="_blank">
+                        <button type="button">
+                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0413 7.125H11.8747V2.375H7.12467V7.125H3.95801L9.49967 12.6667L15.0413 7.125ZM3.95801 14.25V15.8333H15.0413V14.25H3.95801Z" fill="black"/>
+                            </svg>
+                            Download PDF
+
+                        </button>
+                                 </a>
+                    </div>
+                    <div class="sector-wrap">
+                        <table>
+                            <tr>
+                                <th>Sector</th>
+                                <th>Sub-sector</th>
+                            </tr>
+                            <tr>
+                                <td>{{note.sector}}</td>
+                                <td>{{note.sub_sector}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="detail-wrap">
+                        <p class="detail">Details</p>
+                        <p class="detail-content">{{note.detail}}</p>
+                    </div>
+                    <p class="select-company">Select Companies</p>
+                    <div class="table-data">
+                        <!-- <p class="select-company">Select Companies</p> -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Location</th>
+                                    <th>Sector</th>
+                                    <th>Team</th>
+                                    <th>Stages</th>
+                                    <th>Pravega Notes</th>
+                                    <th class="td-btn">More Info</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for researchcomp in researchlist %}
+                                <tr>
+
+                                    <td>
+                                        <p>{{researchcomp.name}}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{researchcomp.location}}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{researchcomp.sector}}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{researchcomp.team}}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{researchcomp.stages}}</p>
+                                    </td>
+                                    <td class="td-notes">
+                                        <p>{{researchcomp.pravega_note}}</p>
+                                    </td>
+                                    <td  class="td-btn">
+                                        <button id="{{ researchcomp.id }}" type="button"  class="btn-more-info">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11 17H13V11H11V17ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM11 9H13V7H11V9Z" fill="black"/>
+                                                </svg>
+                                        </button>
+                                    </td>
+
+                                </tr>
+                             {% endfor %}
+                                <!--<tr>-->
+                                    <!--<td>-->
+                                        <!--<p>Auric</p>-->
+                                    <!--</td>-->
+                                    <!--<td>-->
+                                        <!--<p>Delhi</p>-->
+                                    <!--</td>-->
+                                    <!--<td>-->
+                                        <!--<p>Beverges</p>-->
+                                    <!--</td>-->
+                                    <!--<td>-->
+                                        <!--<p>Ex-Marico, Asian Paints</p>-->
+                                    <!--</td>-->
+                                    <!--<td>-->
+                                        <!--<p>Seed</p>-->
+                                    <!--</td>-->
+                                    <!--<td class="td-notes">-->
+                                        <!--<p>One of the earliest activities we engaged in when we first got into astronomy is the same one we like to show our children just as soon as their excitement about the night sky begins to surface. That is the fun of finding constellations.   </p>-->
+                                    <!--</td>-->
+                                    <!--<td class="td-btn">-->
+                                        <!--<button type="button" class="btn-more-info">-->
+                                            <!--<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+                                                <!--<path fill-rule="evenodd" clip-rule="evenodd" d="M11 17H13V11H11V17ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM11 9H13V7H11V9Z" fill="black"/>-->
+                                                <!--</svg>-->
+                                        <!--</button>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                                <!---->
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>  
+            </section>
+
+            <section class="modal" id="modal">
+                <div class="modal-content ">
+                    <div class="modal-header clearfix">
+                        <p>Send Mail</p>
+                        <button id="close"class="close modal-close">&times;</button>
+                    </div>
+                    <!--<form method="POST" action="{% url 'email' %}">-->
+                        <!--{% csrf_token %}-->
+                    <textarea class="text" id="body" placeholder="About Pravega Ventures…. "></textarea>
+                        <!--<input type="hidden" name="user" id="user">-->
+                    <!--{% if user.is_superuser == False and user.is_staff == False %}-->
+                      <!--<input type="hidden" name="user_role" id="user_role" value="0">-->
+                       <!--{% else %}-->
+                       <!--<input type="hidden" name="user_role" id="user_role" value="1">-->
+                       <!--{% endif %}-->
+
+
+
+                       <!--<input type="hidden" name="user_name" value="{{user.username}}">-->
+
+                    <div   class="modal-footer">
+                        <button class="btn-cancel modal-close">Cancel</button>
+                        <button id="" class="btn-send btnpress" >Send</button>
+                    </div>
+                     <!--</form>-->
+               </div>
+                    <!--</div>-->
+            </section>
+
+              <!-- ---------------mail sucessful--------------- -->
+            <section class="modal " id="modal_sendMailSucess">
+                <div class="modal-content ">
+                    <div class="modal1-header clearfix">
+                        <button id="close"class="close modal-close_sendMail">&times;</button>
+                    </div>
+                    <div class="content">
+                        <svg width="89" height="69" viewBox="0 0 89 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M56.7682 52.9576C56.7682 44.0215 63.9674 36.7785 72.8478 36.7785C74.6498 36.7785 76.3825 37.0768 78 37.6263C78 23.5662 78 3.54507 78 2.78253C78 1.252 76.755 0 75.2339 0H2.76609C1.2443 0 0 1.252 0 2.78253V51.2175C0 52.748 1.2443 54 2.76609 54H56.8022C56.7804 53.6553 56.7682 53.3078 56.7682 52.9576Z" fill="#FFD25D"/>
+                            <path d="M56.6016 52.9576C56.6016 46.8109 59.9975 41.4649 65 38.7261L53.0109 27L47.154 32.7275C42.5466 37.2352 35.2245 37.2352 30.6164 32.7275L24.7602 27L0 51.2175C0 52.748 1.24065 54 2.75797 54H56.6354C56.6138 53.6553 56.6016 53.3078 56.6016 52.9576Z" fill="#EDBE56"/>
+                            <path d="M75.2339 0H2.76609C1.2443 0 0 1.23593 0 2.74681L30.7065 32.6632C35.3282 37.1123 42.6718 37.1123 47.2928 32.6632L78 2.74681C78 1.23593 76.755 0 75.2339 0V0Z" fill="#FFDF8B"/>
+                            <path d="M89 52.5003C89 61.6128 81.613 69 72.5 69C63.3877 69 56 61.6128 56 52.5003C56 43.3872 63.3877 36 72.5 36C81.613 36 89 43.3872 89 52.5003Z" fill="#1DD1A1"/>
+                            <path d="M78.7515 47.3786L71.1157 54.8771L67.2485 51.0795C66.7338 50.5747 65.9002 50.5747 65.3855 51.0795C64.8715 51.5843 64.8715 52.4036 65.3855 52.9083L70.1842 57.6208C70.4412 57.8731 70.7788 58 71.1157 58C71.4526 58 71.7895 57.8731 72.0472 57.6208L80.6145 49.2075C81.1285 48.7027 81.1285 47.8834 80.6145 47.3786C80.0998 46.8738 79.2662 46.8738 78.7515 47.3786Z" fill="#E4EAF8"/>
+                        </svg>
+                        <p>Your message has been sucessfully sent !</p>
+
+                    </div>
+                    <div class="modal1-footer">
+                        <button id="closemail"class="modal-close_sendMail btn-send">OK</button>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+        </article>
+    </main>
+
+      <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+
+<!--</script>-->
+    <script>
+        $(document).ready(function(){
+            $('.btn-more-info').click(function(){
+                $("#modal").show();
+                $('body').css('overflow', 'hidden');
+            });
+
+            $('.modal-close').click(function(){
+                $("#modal").hide();
+                $('body').css('overflow', 'auto');
+            });
+        });
+
+   $('.btn-more-info').on('click',function (){
+       id=  $(this).attr("id");
+       $('.btnpress').attr('id',id);
+
+
+
+    });
+
+          $('.btnpress').on('click',function () {
+           $.ajax({
+
+                    method: "GET",
+                    url: "/email/",
+
+                    data: {'pid':$('.btnpress').attr("id"),'content':$(".text").val()},
+                    success: function(data) {
+                    //debugger
+                    $('.text').val('');
+                    $("#modal").hide();
+                    $("#modal_sendMailSucess").show();
+
+                }
+            })
+     });
+     $('.modal-close_sendMail').on('click',function (){
+
+        $("#modal_sendMailSucess").hide();
+
+    });
+
+      document.getElementById("nav_drop").style.display = "none";
+        function nav_drop() {
+            var nav = document.getElementById("nav_drop");
+            console.log(nav.style.display);
+            if (nav.style.display === "none") {
+                console.log("if none");
+                nav.style.display = "block";
+            } else {
+                nav.style.display = "none";
+                console.log("else");
+            }
+            }
+    </script>
+</body>
+</html>
